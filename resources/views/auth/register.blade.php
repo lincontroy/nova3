@@ -71,6 +71,11 @@
                         <!-- /.col -->
                     </div>
                 </form>
+
+              
+                <p class="mb-0">
+                    <a href="{{ route('login') }}" class="text-center">Login</a>
+                </p>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
