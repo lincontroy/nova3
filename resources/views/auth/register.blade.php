@@ -25,7 +25,7 @@
                     @csrf
                     <div class="input-group mb-3">
                         <input id="name" class="form-control" type="text" name="name" :value="old('name')"
-                            required autofocus autocomplete="name" placeholder="Enter name">
+                            required autofocus autocomplete="name" placeholder="Full name">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <input id="email" class="form-control" type="tel" name="phonenumber" :value="old('phonenumber')"
-                            required autocomplete="phonenumber" placeholder="Enter mobile number">
+                            required autocomplete="phonenumber" placeholder="0908900765">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-mobile"></span>
