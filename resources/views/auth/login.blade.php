@@ -11,45 +11,79 @@
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form action="{{ route('login') }}" method="POST">
-                    @csrf
-                    <div class="input-group mb-3">
-                        <input id="email" class="form-control" type="tel" name="phonenumber" :value="old('phonenumber')"
-                            required autofocus autocomplete="phone">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-tel"></span>
-                            </div>
-                        </div>
-                        <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-                    </div>
-                    <div class="input-group mb-3">
-                        <input id="password" class="form-control" type="password" name="password" required
-                            autocomplete="current-password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" name="remember" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
-                
+    @csrf
+
+    {{-- Phone Number --}}
+    <div class="input-group mb-3">
+        <label for="phonenumber" class="sr-only">Phone Number</label>
+        <input
+            id="phonenumber"
+            class="form-control"
+            type="tel"
+            name="phonenumber"
+            value="{{ old('phonenumber') }}"
+            required
+            autofocus
+            autocomplete="tel"
+            placeholder="Phone Number"
+        >
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-phone"></span>
+            </div>
+        </div>
+    </div>
+    <x-input-error :messages="$errors->get('phonenumber')" class="mt-2" />
+
+    {{-- Password --}}
+    <div class="input-group mb-3">
+        <label for="password" class="sr-only">Password</label>
+        <input
+            id="password"
+            class="form-control"
+            type="password"
+            name="password"
+            required
+            autocomplete="current-password"
+            placeholder="Password"
+        >
+        <div class="input-group-append">
+            <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+            </div>
+        </div>
+    </div>
+    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
+    <div class="row">
+        <div class="col-8">
+            <div class="icheck-primary">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">
+                    Remember Me
+                </label>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">
+                Sign In
+            </button>
+        </div>
+    </div>
+</form>
+
                 <p class="mb-1">
                     <a href="{{ route('password.request') }}">I forgot my password</a>
                 </p>
