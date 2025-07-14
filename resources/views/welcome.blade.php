@@ -508,21 +508,24 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-inner">
-                <a href="#home" class="logo">Nova Investments</a>
-                <nav>
-                    <ul class="nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <a href="/login" class="login-btn">Login</a>
-            </div>
+    <div class="container">
+        <div class="header-inner">
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Nova Investments" style="height:50px;">
+            </a>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="/login" class="login-btn">Login</a>
         </div>
-    </header>
+    </div>
+</header>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
