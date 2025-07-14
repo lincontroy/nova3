@@ -30,15 +30,18 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+        // dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phonenumber' => [
-                'required',
-                'string',
-                'max:20', // or whatever max length you expect
-                'unique:'.User::class,
-                'regex:/^(?:\+251|0)?9\d{8}$/', // Ethiopian phone number format
-            ],
+            'required',
+            'string',
+            'max:20',
+            'unique:'.User::class,
+            'regex:/^09\d{8}$/',
+        ],
+
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -48,7 +51,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ])->assignRole('user');
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
         Auth::login($user);
 
