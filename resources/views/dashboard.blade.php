@@ -45,7 +45,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>ETB {{App\Models\Deposit::where('approved', '=', 'approved')->sum('amount');}}</h3>
+                    <h3>ETB {{App\Models\Deposit::where('status', '=', 'approved')->sum('amount');}}</h3>
                     <p>Approved Deposits</p>
                 </div>
                 <div class="icon">
