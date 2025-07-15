@@ -13,7 +13,7 @@
                 <div class="icon">
                     <i class="fas fa-list-alt"></i>
                 </div>
-                <a href="{{ route('admin.category.index') }}" class="small-box-footer">
+                <a href="{{ route('admin.dashboard') }}" class="small-box-footer">
                     View <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>

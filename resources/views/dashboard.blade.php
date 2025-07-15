@@ -71,7 +71,7 @@
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
-                <a href="{{ route('admin.user.index') }}" class="small-box-footer">View <i
+                <a href="{{ route('admin.dashboard') }}" class="small-box-footer">View <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 <div class="icon">
                     <i class="fas fa-list-alt"></i>
                 </div>
-                <a href="{{ route('admin.category.index') }}" class="small-box-footer">View <i
+                <a href="{{ route('admin.dashboard') }}" class="small-box-footer">View <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -98,7 +98,7 @@
                 <div class="icon">
                     <i class="fas fas fa-file-pdf"></i>
                 </div>
-                <a href="{{ route('admin.collection.index') }}" class="small-box-footer">View <i
+                <a href="{{ route('admin.dashboard') }}" class="small-box-footer">View <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -115,6 +115,72 @@
         </a>
     </div>
 </div>
+
+<!-- Partners -->
+ <style>
+   .partners {
+    width: 100%;
+}
+
+.partner-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 150px;
+}
+
+.slider-track {
+    display: flex;
+    width: calc(200%); /* adjust as needed if you want more repetitions */
+    animation: scroll 15s linear infinite;
+}
+
+.partner-logo img {
+    max-height: 250px; /* or any size you want */
+    height: auto;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+ </style>
+<section class="partners py-5 bg-light">
+    <div class="text-center mb-4">
+        <h3>Our Partners</h3>
+    </div>
+
+    <div class="partner-slider overflow-hidden">
+        <div class="slider-track ">
+            <div class="partner-logo">
+                <img src="{{url('images/partners/cosco.png')}}" alt="Partner 1" class="img-fluid">
+            </div>
+            <div class="partner-logo px-4">
+                <img src="{{url('images/partners/alibaba.png')}}" alt="Partner 2" class="img-fluid">
+            </div>
+            <div class="partner-logo px-4">
+                <img src="{{url('images/partners/aliexpress.png')}}" alt="Partner 3" class="img-fluid">
+            </div>
+            <div class="partner-logo px-4">
+                <img src="{{url('images/partners/shopify.png')}}" alt="Partner 4" class="img-fluid">
+            </div>
+            <div class="partner-logo px-4">
+                <img src="{{url('images/partners/amazon.png')}}" alt="Partner 5" class="img-fluid">
+            </div>
+            <div class="partner-logo px-4">
+                <img src="{{url('images/partners/wayfair.png')}}" alt="Partner 5" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 @endrole
 
 
