@@ -63,13 +63,13 @@
                 <h5 class="mb-0">{{ $package['name'] }} </h5>
             </div>
             <div class="card-body text-center">
-                <h3 class="text-primary fw-bold mb-3">
+                <!-- <h3 class="text-primary fw-bold mb-3">
                     ETB {{ number_format($package['price']) }}
-                </h3>
+                </h3> -->
                 <p class="text-muted mb-2">
                     Product Value: <strong>ETB {{ number_format($package['product_value']) }}</strong>
                 </p>
-                <p class="text-muted">
+                <p class="">
                     Commission: <strong>ETB {{ number_format($package['product_value'] * 0.10) }} (10%)</strong>
                 </p>
 

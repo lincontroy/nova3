@@ -54,7 +54,7 @@ class UserController extends Controller
         ]); 
         $user = User::find($request->id);
         $user->update(
-            $request->only(['name', 'email', 'phonenumber', 'level','wallet_balance','level']) // specify allowed fields
+            $request->only(['name', 'email', 'phonenumber', 'level','wallet_balance','level','total_commissions']) // specify allowed fields
         );
         $user->assignRole($request->role);
         return redirect()->route('admin.user.index')->with('success','User updated successfully.');

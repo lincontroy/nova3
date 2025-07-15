@@ -22,7 +22,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="Email" class="form-label">Email:*</label>
-                            <input type="email" class="form-control" name="email" required
+                            <input type="email" class="form-control" name="email" 
                                 value="{{ $user->email }}">
                                 <x-error>email</x-error>
                         </div>
@@ -46,6 +46,14 @@
                             <input type="text" class="form-control" name="wallet_balance" required
                                 value="{{ $user->wallet_balance }}">
                                 <x-error>wallet_balance</x-error>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Commision Balance</label>
+                            <input type="text" class="form-control" name="total_commissions" required
+                                value="{{ $user->total_commissions }}">
+                                <x-error>commision balance</x-error>
                         </div>
                     </div>
                     <div class="col-lg-6">
