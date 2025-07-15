@@ -418,7 +418,7 @@ private function getAllLevelImagesAlternative($levelNumber)
             'category'=>$categoryCount,
             'walletBalance' => $user->wallet_balance,
             'totalCommissions' => $user->total_commissions,
-            'totalWithdrawals' => $user->total_withdrawals,
+            'totalWthdrawals' => $user->total_withdrawals,
         ]);
     }
     /**
