@@ -210,20 +210,101 @@ class ProfileController extends Controller
             ['name' => 'Level 4', 'price' => 12000, 'product_value' => 2000000],
             ['name' => 'Level 5', 'price' => 24000, 'product_value' => 2500000],
         ]);
-    
+        
         $package = $packages->firstWhere('name', $name);
-    
+        
         abort_if(!$package, 404, 'Package not found');
-    
-        // Get the package index (1-based) to determine image count
-        $packageIndex = $packages->search(function ($pkg) use ($name) {
-            return $pkg['name'] === $name;
-        }) + 1; // Add 1 to make it 1-based (Starter=1, Silver=2, etc.)
-    
-        $randomImages = $this->getRandomImages($packageIndex);
-    
-        return view('packages.show', compact('package', 'randomImages'));
+        
+        // Get the package level number (1, 2, 3, 4, 5)
+        $levelNumber = (int) str_replace('Level ', '', $name);
+        
+        // Get all images for this level
+        $levelImages = $this->getAllLevelImages($levelNumber);
+        
+        return view('packages.show', compact('package', 'levelImages'));
     }
+
+    private function getAllLevelImages($levelNumber)
+{
+    $images = collect();
+    
+    // Define the path where images are stored (adjust as needed)
+    $imagePath = public_path("images");
+    
+    // Check if directory exists
+    if (!is_dir($imagePath)) {
+        return $images;
+    }
+    
+    // Get all files in the directory
+    $files = scandir($imagePath);
+    
+    // Filter and sort image files for the specific level
+    $imageFiles = collect($files)
+        ->filter(function ($file) use ($levelNumber) {
+            // Check if file matches pattern: level{X}, level{X}{X}, level{X}{X}{X}, etc.
+            // For level 1: level1.jpeg
+            // For level 2: level2.jpeg, level22.jpeg
+            // For level 3: level3.jpeg, level33.jpeg, level333.jpeg
+            $pattern = "/^level{$levelNumber}+\.(jpg|jpeg|png|gif|webp)$/i";
+            return preg_match($pattern, $file);
+        })
+        ->sort(function ($a, $b) {
+            // Sort by the length of the filename (level1, level22, level333, etc.)
+            preg_match("/level(\d+)/", $a, $matchesA);
+            preg_match("/level(\d+)/", $b, $matchesB);
+            
+            $lengthA = strlen($matchesA[1]);
+            $lengthB = strlen($matchesB[1]);
+            
+            // First sort by length (number of repeated digits)
+            if ($lengthA !== $lengthB) {
+                return $lengthA <=> $lengthB;
+            }
+            
+            // If same length, sort numerically
+            return (int)$matchesA[1] <=> (int)$matchesB[1];
+        });
+    
+    // Convert to full URLs
+    foreach ($imageFiles as $file) {
+        $images->push(asset("images/{$file}"));
+    }
+    
+    return $images;
+}
+
+// Alternative method if you prefer to hardcode the expected images
+private function getAllLevelImagesAlternative($levelNumber)
+{
+    $images = collect();
+    
+    // Define the expected image patterns for each level
+    $levelPatterns = [
+        1 => ['level1.jpeg'], // Level 1 has 1 image
+        2 => ['level2.jpeg', 'level22.jpeg'], // Level 2 has 2 images
+        3 => ['level3.jpeg', 'level33.jpeg', 'level333.jpeg'], // Level 3 has 3 images
+        4 => ['level4.jpeg', 'level44.jpeg', 'level444.jpeg', 'level4444.jpeg'], // Level 4 has 4 images
+        5 => ['level5.jpeg', 'level55.jpeg', 'level555.jpeg', 'level5555.jpeg', 'level55555.jpeg'], // Level 5 has 5 images
+    ];
+    
+    $expectedImages = $levelPatterns[$levelNumber] ?? [];
+    
+    foreach ($expectedImages as $imageName) {
+        $imagePath = asset("images/{$imageName}");
+        
+        // Optional: Check if image actually exists
+        $publicPath = public_path("images/{$imageName}");
+        if (file_exists($publicPath)) {
+            $images->push($imagePath);
+        }
+    }
+    
+    return $images;
+}
+
+
+
     
     /**
      * Process package order

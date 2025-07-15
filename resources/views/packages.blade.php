@@ -17,9 +17,7 @@
                     View <i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
-        </div>
-
-    
+        </div>    
     <h2 class="text-center mb-5">Get Started</h2>
     <div class="row g-4">
         @php
