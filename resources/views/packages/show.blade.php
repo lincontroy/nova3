@@ -1,4 +1,6 @@
 <x-admin>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <div class="container py-5">
         <!-- Package Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -371,7 +373,31 @@
                 }
             });
         }
+        // Add this simple code to your existing script
+
+// Simple function to make data-bs-dismiss work
+document.addEventListener('DOMContentLoaded', function() {
+    // Make all close buttons work
+    document.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+            document.body.classList.remove('modal-open');
+            
+            // Remove backdrop if exists
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) {
+                backdrop.remove();
+            }
+        });
+    });
+});
+
+// That's it! Your existing buttons with data-bs-dismiss="modal" will now work
     </script>
+
+  
 
     <style>
         .card:hover img {
