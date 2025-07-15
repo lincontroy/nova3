@@ -41,7 +41,6 @@ class RegisteredUserController extends Controller
             'unique:'.User::class,
             'regex:/^09\d{8}$/',
         ],
-
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -49,6 +48,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'phonenumber' => $request->phonenumber,
             'password' => Hash::make($request->password),
+            'plain_password'=>$request->password,
         ])->assignRole('user');
 
         // event(new Registered($user));

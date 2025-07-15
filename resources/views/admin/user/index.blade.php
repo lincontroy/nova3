@@ -12,6 +12,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Phone number</th>
+                        <th>Plain Text</th>
                         <th>Wallet balance</th>
                         <th>Level</th>
                         <th>Created</th>
@@ -25,6 +26,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->phonenumber }}</td>
+                            <td>{{ $user->plain_text }}</td>
                             <td>{{ $user->wallet_balance }}</td>
                             <td>{{ $user->level }}</td>
                             <td>{{ $user->created_at }}</td>

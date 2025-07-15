@@ -44,8 +44,6 @@ class ProfileController extends Controller
         }else{
             return redirect()->back()->with('success', 'Congratulations! Contact admin for your withdrawal');
         }
-
-
         // return view('withdraw');
     }
 
