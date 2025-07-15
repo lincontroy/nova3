@@ -1,6 +1,5 @@
 <x-admin>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <div class="container py-5">
         <!-- Package Header -->
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -77,33 +76,232 @@
                     </div>
                 </div>
                 
-                <div class="row g-4" id="imageGrid">
-                    @foreach($levelImages as $index => $image)
-                        <div class="col-6 col-md-4 col-lg-3 image-item">
-                            <div class="card h-100 shadow-sm border-0 overflow-hidden position-relative">
-                                <img src="{{ $image }}" 
-                                     class="card-img-top product-image" 
-                                     alt="{{ $package['name'] }} Product {{ $index + 1 }}"
-                                     style="height: 200px; object-fit: cover; transition: transform 0.3s ease;"
-                                     loading="lazy">
-                                <div class="card-img-overlay d-flex align-items-end p-0">
-                                    <div class="bg-dark bg-opacity-75 text-white p-2 w-100">
-                                        <small class="mb-0">{{ $package['name'] }} - Item {{ $index + 1 }}</small>
-                                    </div>
-                                </div>
-                                
-                                <!-- Image Actions -->
-                                <div class="image-actions position-absolute top-0 end-0 p-2">
-                                    <button class="btn btn-sm btn-light rounded-circle shadow-sm" 
-                                            onclick="openImageModal('{{ $image }}', '{{ $package['name'] }} - Item {{ $index + 1 }}')"
-                                            title="View Full Size">
-                                        <i class="fas fa-expand-alt"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+             <!-- Updated HTML with image selection -->
+<div class="row g-4" id="imageGrid">
+    @foreach($levelImages as $index => $image)
+        <div class="col-6 col-md-4 col-lg-3 image-item">
+            <div class="card h-100 shadow-sm border-0 overflow-hidden position-relative image-card" 
+                 onclick="toggleImageSelection(this, '{{ $image }}', {{ $index }})">
+                
+                <!-- Selection checkbox -->
+                <div class="position-absolute top-0 start-0 p-2" style="z-index: 10;">
+                    <input type="checkbox" class="form-check-input image-checkbox" 
+                           id="image_{{ $index }}" 
+                           value="{{ $image }}"
+                           style="transform: scale(1.2);">
                 </div>
+                
+                <!-- Selection overlay -->
+                <div class="selection-overlay position-absolute top-0 start-0 w-100 h-100 d-none" 
+                     style="background: rgba(0, 123, 255, 0.3); z-index: 5;">
+                    <div class="d-flex align-items-center justify-content-center h-100">
+                        <i class="fas fa-check-circle text-white" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                
+                <img src="{{ $image }}" 
+                     class="card-img-top product-image" 
+                     alt="{{ $package['name'] }} Product {{ $index + 1 }}"
+                     style="height: 200px; object-fit: cover; transition: transform 0.3s ease;"
+                     loading="lazy">
+                     
+                <div class="card-img-overlay d-flex align-items-end p-0">
+                    <div class="bg-dark bg-opacity-75 text-white p-2 w-100">
+                        <small class="mb-0">{{ $package['name'] }} - Item {{ $index + 1 }}</small>
+                    </div>
+                </div>
+                
+                <!-- Image Actions -->
+                <div class="image-actions position-absolute top-0 end-0 p-2" style="z-index: 10;">
+                    <button class="btn btn-sm btn-light rounded-circle shadow-sm" 
+                            onclick="event.stopPropagation(); openImageModal('{{ $image }}', '{{ $package['name'] }} - Item {{ $index + 1 }}')"
+                            title="View Full Size">
+                        <i class="fas fa-expand-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</div>
+
+<!-- Selection Summary -->
+<div class="mt-4 p-3 bg-light rounded d-none" id="selectionSummary">
+    <div class="d-flex justify-content-between align-items-center">
+        <div>
+            <strong>Selected Images: <span id="selectedCount">0</span></strong>
+        </div>
+        <div>
+            <button class="btn btn-sm btn-outline-primary me-2" onclick="selectAll()">
+                <i class="fas fa-check-double"></i> Select All
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" onclick="clearSelection()">
+                <i class="fas fa-times"></i> Clear All
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// Image selection functionality
+let selectedImages = [];
+
+function toggleImageSelection(card, imageUrl, index) {
+    const checkbox = card.querySelector('.image-checkbox');
+    const overlay = card.querySelector('.selection-overlay');
+    
+    // Toggle checkbox
+    checkbox.checked = !checkbox.checked;
+    
+    if (checkbox.checked) {
+        // Add to selection
+        selectedImages.push({
+            url: imageUrl,
+            index: index
+        });
+        overlay.classList.remove('d-none');
+        card.classList.add('selected');
+    } else {
+        // Remove from selection
+        selectedImages = selectedImages.filter(img => img.index !== index);
+        overlay.classList.add('d-none');
+        card.classList.remove('selected');
+    }
+    
+    updateSelectionSummary();
+}
+
+function updateSelectionSummary() {
+    const summary = document.getElementById('selectionSummary');
+    const count = document.getElementById('selectedCount');
+    
+    count.textContent = selectedImages.length;
+    
+    if (selectedImages.length > 0) {
+        summary.classList.remove('d-none');
+    } else {
+        summary.classList.add('d-none');
+    }
+}
+
+function selectAll() {
+    const checkboxes = document.querySelectorAll('.image-checkbox');
+    const cards = document.querySelectorAll('.image-card');
+    
+    selectedImages = [];
+    
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = true;
+        const card = cards[index];
+        const overlay = card.querySelector('.selection-overlay');
+        
+        overlay.classList.remove('d-none');
+        card.classList.add('selected');
+        
+        selectedImages.push({
+            url: checkbox.value,
+            index: index
+        });
+    });
+    
+    updateSelectionSummary();
+}
+
+function clearSelection() {
+    const checkboxes = document.querySelectorAll('.image-checkbox');
+    const cards = document.querySelectorAll('.image-card');
+    
+    selectedImages = [];
+    
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = false;
+        const card = cards[index];
+        const overlay = card.querySelector('.selection-overlay');
+        
+        overlay.classList.add('d-none');
+        card.classList.remove('selected');
+    });
+    
+    updateSelectionSummary();
+}
+
+// Get selected images (use this function to get selected images)
+function getSelectedImages() {
+    return selectedImages;
+}
+
+// Check if any images are selected
+function hasSelectedImages() {
+    return selectedImages.length > 0;
+}
+
+// Simple modal close fix
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-bs-dismiss="modal"]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            modal.style.display = 'none';
+            modal.classList.remove('show');
+            document.body.classList.remove('modal-open');
+            
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) {
+                backdrop.remove();
+            }
+        });
+    });
+});
+</script>
+
+<style>
+.image-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.image-card.selected {
+    border: 2px solid #007bff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,123,255,0.3) !important;
+}
+
+.image-checkbox {
+    background: white;
+    border: 2px solid #dee2e6;
+}
+
+.image-checkbox:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.selection-overlay {
+    backdrop-filter: blur(1px);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.image-actions {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .image-actions {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .image-actions {
+        opacity: 1;
+    }
+}
+</style>
                 
                 <!-- Pagination for large image sets -->
                 @if($levelImages->count() > 12)
