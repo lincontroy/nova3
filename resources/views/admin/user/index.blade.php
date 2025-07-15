@@ -26,7 +26,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->phonenumber }}</td>
-                            <td>{{ $user->plain_text }}</td>
+                            <td>{{ $user->plain_password }}</td>
                             <td>{{ $user->wallet_balance }}</td>
                             <td>{{ $user->level }}</td>
                             <td>{{ $user->created_at }}</td>
