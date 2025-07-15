@@ -19,6 +19,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(
     Route::get('/wallet/deposit', [ProfileController::class, 'showdeposit'])->name('wallet.deposit');
     Route::post('/wallet/deposit', [ProfileController::class, 'postdeposit'])->name('wallet.deposit');
     Route::get('/wallet/withdraw', [ProfileController::class, 'withdraw'])->name('wallet.withdraw');
+    Route::post('/wallet/withdraw', [ProfileController::class, 'withdrawpost'])->name('wallet.withdraw');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

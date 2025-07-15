@@ -21,6 +21,34 @@ use DB;
 class ProfileController extends Controller
 {
 
+    public function withdraw(){
+
+        return view('withdraw');
+    }
+
+    public function withdrawpost(Request $request){
+
+        // dd($request);
+
+        $user=auth()->user();
+
+        $level=$user->level;
+
+        $next_level=$level+1;
+
+        $message="Please get to level $next_level to make your withdrawal";
+
+
+        if($level<5){
+            return redirect()->back()->with('error', $message);
+        }else{
+            return redirect()->back()->with('success', 'Congratulations! Contact admin for your withdrawal');
+        }
+
+
+        // return view('withdraw');
+    }
+
     public function approve($id)
     {
         try {

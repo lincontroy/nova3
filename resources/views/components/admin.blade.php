@@ -143,11 +143,24 @@
     <script src="{{ asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Toast cdn -->
     <script src="{{ asset('admin/dist/js/toastr.min.js') }}"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+        @if (session('swal_error'))
+        <script>
+            Swal.fire({
+                title: '{{ session('swal_error.title') }}',
+                text: '{{ session('swal_error.text') }}',
+                icon: '{{ session('swal_error.icon') }}',
+            });
+        </script>
+        @endif
+
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
             'use strict';
