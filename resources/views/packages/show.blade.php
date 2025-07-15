@@ -37,19 +37,7 @@
                 </div>
             </div>
             
-            <div class="card-footer bg-transparent text-center py-4">
-                <form id="orderForm" method="POST" action="{{ route('admin.packages.order') }}">
-                    @csrf
-                    <input type="hidden" name="name" value="{{ $package['name'] }}">
-                    <input type="hidden" name="price" value="{{ $package['price'] }}">
-                    <input type="hidden" name="product_value" value="{{ $package['product_value'] }}">
-                    <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 py-3 shadow-sm" id="orderBtn">
-                        <i class="fas fa-bullhorn me-2"></i>
-                        <span class="btn-text">Proceed to Advertise</span>
-                        <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
-                    </button>
-                </form>
-            </div>
+            
         </div>
 
         <!-- Products Preview Section -->
@@ -133,6 +121,20 @@
                 <p class="text-muted">Product images will be displayed here when available.</p>
             </div>
         @endif
+
+        <div class="card-footer bg-transparent text-center py-4">
+                <form id="orderForm" method="POST" action="{{ route('admin.packages.order') }}">
+                    @csrf
+                    <input type="hidden" name="name" value="{{ $package['name'] }}">
+                    <input type="hidden" name="price" value="{{ $package['price'] }}">
+                    <input type="hidden" name="product_value" value="{{ $package['product_value'] }}">
+                    <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 py-3 shadow-sm" id="orderBtn">
+                        <i class="fas fa-bullhorn me-2"></i>
+                        <span class="btn-text">Proceed to Advertise</span>
+                        <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
     </div>
 
     <!-- Image Modal -->
