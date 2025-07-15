@@ -58,7 +58,20 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="d-flex align-items-center">
                         <i class="fas fa-eye text-primary me-2"></i>
-                        <h4 class="mb-0">{{ $package['name'] }} Products</h4>
+
+                    
+                        <h4 class="mb-0">
+                            @php
+                                $categoryNames = [
+                                    'Level 1' => 'Automotive',
+                                    'Level 2' => 'Apple accessories', 
+                                    'Level 3' => 'Gym and fitness',
+                                    'Level 4' => 'Furniture',
+                                    'Level 5' => 'Electronics'
+                                ];
+                            @endphp
+                            {{ $categoryNames[$package['name']] ?? $package['name'] }}
+                        </h4>
                         <span class="badge bg-secondary ms-2">{{ $levelImages->count() }} items</span>
                     </div>
                     <div class="d-flex align-items-center">
