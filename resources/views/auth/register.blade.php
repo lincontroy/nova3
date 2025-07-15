@@ -63,19 +63,20 @@
                         </div>
                         <x-input-error :messages="$errors->get('password_confirmation')" class="text-danger" />
                     </div>
-                    <div class="row">
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                </form>
+                    <div class="row justify-content-center">
+    <div class="col-6 col-md-4">
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+    </div>
+</div>
+</form>
 
-              
-                <p class="mb-0">
-                    <a href="{{ route('login') }}" class="text-center">Login</a>
-                </p>
+<div class="text-center mt-3">
+    <p class="mb-0">
+        Already have an account?
+        <a href="{{ route('login') }}" class="text-primary fw-bold">Login</a>
+    </p>
+</div>
+
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
