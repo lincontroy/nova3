@@ -72,7 +72,8 @@
                             @endphp
                             {{ $categoryNames[$package['name']] ?? $package['name'] }}
                         </h4>
-                        <span class="badge bg-secondary ms-2">{{ $levelImages->count() }} items</span>
+                        <br>
+                        <span class="badge bg-secondary ms-2">{{ $levelImages->count() }} item(s)</span>
                     </div>
                     <div class="d-flex align-items-center">
                         <button class="btn btn-outline-primary btn-sm me-2" onclick="toggleView()">
