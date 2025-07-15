@@ -4,8 +4,23 @@
 
 <x-admin>
 <div class="container py-5">
-    <h2 class="text-center mb-5">Get Started</h2>
+        <div class="col-md-12 col-12">
+            <div class="small-box bg-success" style="min-height: 200px; padding: 2rem;">
+                <div class="inner">
+                    <h3>ETB {{ Auth::user()->total_commissions }}</h3>
+                    <p>My Total Commissions</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-list-alt"></i>
+                </div>
+                <a href="{{ route('admin.category.index') }}" class="small-box-footer">
+                    View <i class="fas fa-arrow-circle-right"></i>
+                </a>
+            </div>
+        </div>
 
+    
+    <h2 class="text-center mb-5">Get Started</h2>
     <div class="row g-4">
         @php
             $packages = collect([
