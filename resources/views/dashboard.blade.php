@@ -93,7 +93,7 @@
             <div class="small-box bg-secondary">
                 <div class="inner">
                     <h5>ETB {{ $totalWthdrawals }}</h5>
-                    <p>Total total Withdrawals</p>
+                    <p>Total Withdrawals</p>
                 </div>
                 <div class="icon">
                     <i class="fas fas fa-file-pdf"></i>
