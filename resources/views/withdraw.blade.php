@@ -4,7 +4,6 @@
     @csrf
     <h4 class="mb-4">Payment Details</h4>
 
-    {{-- Amount --}}
     <div class="mb-3">
         <label for="amount" class="form-label">Amount</label>
         <input
@@ -17,8 +16,6 @@
             min="0"
         >
     </div>
-
-    {{-- Bank Details --}}
     <div class="mb-3">
         <label for="bank_details" class="form-label">Bank Details</label>
         <textarea

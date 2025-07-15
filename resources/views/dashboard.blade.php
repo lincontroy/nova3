@@ -65,7 +65,7 @@
          <div class="col-lg-4 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>ETB {{ $walletBalance }}</h3>
+                    <h5>ETB {{ $walletBalance }}</h5>
                     <p>Wallet balance</p>
                 </div>
                 <div class="icon">
@@ -78,7 +78,7 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>ETB {{ $totalCommissions }}</h3>
+                    <h5>ETB {{ $totalCommissions }}</h5>
                     <p>Total totalCommissions</p>
                 </div>
                 <div class="icon">
@@ -92,7 +92,7 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h3>ETB {{ $totalWithdrawals }}</h3>
+                    <h5>ETB {{ $totalWithdrawals }}</h5>
                     <p>Total totalWithdrawals</p>
                 </div>
                 <div class="icon">
