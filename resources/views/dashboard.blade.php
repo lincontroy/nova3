@@ -92,8 +92,8 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h5>ETB {{ $totalWithdrawals }}</h5>
-                    <p>Total totalWithdrawals</p>
+                    <h5>ETB {{ $totalWthdrawals }}</h5>
+                    <p>Total total Withdrawals</p>
                 </div>
                 <div class="icon">
                     <i class="fas fas fa-file-pdf"></i>

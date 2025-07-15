@@ -58,6 +58,14 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label for="name" class="form-label">Total Withdrawals</label>
+                            <input type="text" class="form-control" name="total_withdrawals" required
+                                value="{{ $user->total_withdrawals }}">
+                                <x-error>Total withdrawals</x-error>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label for="level" class="form-label">Level</label>
                             <input type="text" class="form-control" name="level" required
                                 value="{{ $user->level }}">
