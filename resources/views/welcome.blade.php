@@ -643,7 +643,7 @@
                         <div class="contact-icon">📧</div>
                         <div>
                             <h3>Email</h3>
-                            <p>info@novainvestments.com</p>
+                            <p>info@novainvestments.store</p>
                         </div>
                     </div>
                     <div class="contact-item">
