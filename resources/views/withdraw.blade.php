@@ -1,5 +1,7 @@
 <x-admin>
 <div class="container py-5">
+
+<h3>Withdraw</h3>
 <form action="{{url('admin/wallet/withdraw')}}" method="POST" class="p-4 border rounded shadow-sm bg-light">
     @csrf
     <h4 class="mb-4">Payment Details</h4>
