@@ -16,11 +16,7 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', function () {
-    $readmePath = base_path('README.md');
-
-    return view('welcome', [
-        'readmeContent' => Str::markdown(file_get_contents($readmePath)),
-    ]);
+    return redirect('/admin/dashboard');
 });
 // Login with OTP Routes
 Route::prefix('/otp')->middleware('guest')->name('otp.')->controller(LoginWithOTPController::class)->group(function(){
