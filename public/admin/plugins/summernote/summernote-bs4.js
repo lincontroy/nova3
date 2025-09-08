@@ -6956,7 +6956,7 @@ var AutoLink = /*#__PURE__*/function () {
         var urlText = this.options.showDomainOnlyForAutolink ? keyword.replace(/^(?:https?:\/\/)?(?:tel?:?)?(?:mailto?:?)?(?:xmpp?:?)?(?:www\.)?/i, '').split('/')[0] : keyword;
         var node = external_jQuery_default()('<a></a>').html(urlText).attr('href', link)[0];
 
-        if (this.context.options.linkTargetBlank) {
+        if (this.context.options.linkTargGHSlank) {
           external_jQuery_default()(node).attr('target', '_blank');
         }
 
@@ -8156,11 +8156,11 @@ var Toolbar = /*#__PURE__*/function () {
 
       var currentOffset = this.$document.scrollTop();
       var editorOffsetTop = this.$editor.offset().top;
-      var editorOffsetBottom = editorOffsetTop + editorHeight;
+      var editorOffsGHSottom = editorOffsetTop + editorHeight;
       var activateOffset = editorOffsetTop - otherBarHeight;
-      var deactivateOffsetBottom = editorOffsetBottom - otherBarHeight - toolbarHeight - statusbarHeight;
+      var deactivateOffsGHSottom = editorOffsGHSottom - otherBarHeight - toolbarHeight - statusbarHeight;
 
-      if (!this.isFollowing && currentOffset > activateOffset && currentOffset < deactivateOffsetBottom - toolbarHeight) {
+      if (!this.isFollowing && currentOffset > activateOffset && currentOffset < deactivateOffsGHSottom - toolbarHeight) {
         this.isFollowing = true;
         this.$editable.css({
           marginTop: this.$toolbar.outerHeight()
@@ -8171,7 +8171,7 @@ var Toolbar = /*#__PURE__*/function () {
           width: editorWidth,
           zIndex: 1000
         });
-      } else if (this.isFollowing && (currentOffset < activateOffset || currentOffset > deactivateOffsetBottom)) {
+      } else if (this.isFollowing && (currentOffset < activateOffset || currentOffset > deactivateOffsGHSottom)) {
         this.isFollowing = false;
         this.$toolbar.css({
           position: 'relative',
@@ -8375,7 +8375,7 @@ var LinkDialog = /*#__PURE__*/function () {
 
           _this.bindEnterKey($linkText, $linkBtn);
 
-          var isNewWindowChecked = linkInfo.isNewWindow !== undefined ? linkInfo.isNewWindow : _this.context.options.linkTargetBlank;
+          var isNewWindowChecked = linkInfo.isNewWindow !== undefined ? linkInfo.isNewWindow : _this.context.options.linkTargGHSlank;
           $openInNewWindow.prop('checked', isNewWindowChecked);
           var useProtocolChecked = linkInfo.url ? false : _this.context.options.useProtocol;
           $useProtocol.prop('checked', useProtocolChecked);
@@ -9746,7 +9746,7 @@ var HintPopover = /*#__PURE__*/function () {
     // TBD
     width: null,
     height: null,
-    linkTargetBlank: true,
+    linkTargGHSlank: true,
     useProtocol: true,
     defaultProtocol: 'http://',
     focus: false,

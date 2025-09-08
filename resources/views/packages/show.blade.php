@@ -10,8 +10,8 @@
         <!-- Package Details Card -->
         <div class="card shadow-lg rounded-4 mb-5 overflow-hidden">
             <div class="card-header bg-gradient text-white text-center py-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <h3 class="mb-1 fw-bold">ETB {{ number_format($package['price']) }}</h3>
-                <small class="opacity-75">One-time Investment</small>
+                <h3 class="mb-1 fw-bold">GHS {{ number_format($package['price']) }}</h3>
+                <small class="opacity-75">One-time orders</small>
             </div>
             
             <div class="card-body p-4">
@@ -21,7 +21,7 @@
                             <i class="fas fa-gift text-success me-3 fs-4"></i>
                             <div>
                                 <h6 class="mb-1">Product Value</h6>
-                                <span class="text-muted">ETB {{ number_format($package['product_value']) }}</span>
+                                <span class="text-muted">GHS {{ number_format($package['product_value']) }}</span>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             <i class="fas fa-percentage text-warning me-3 fs-4"></i>
                             <div>
                                 <h6 class="mb-1">Commission (10%)</h6>
-                                <span class="text-success fw-bold">ETB {{ number_format($package['product_value'] * 0.10) }}</span>
+                                <span class="text-success fw-bold">GHS {{ number_format($package['product_value'] * 0.10) }}</span>
                             </div>
                         </div>
                     </div>
@@ -362,8 +362,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <h4 class="mb-3 text-warning">Insufficient Balance</h4>
                     <p class="mb-4 text-muted">
-                        <strong>Required Amount:</strong> ETB <span id="requiredAmount"></span><br>
-                        <strong>Available Balance:</strong> ETB <span id="availableBalance"></span>
+                        <strong>Required Amount:</strong> GHS <span id="requiredAmount"></span><br>
+                        <strong>Available Balance:</strong> GHS <span id="availableBalance"></span>
                     </p>
                     <div class="d-flex justify-content-center gap-3">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
                     </div>
                     <h4 class="mb-3 text-success">Order Successful!</h4>
-                    <p class="mb-4 text-muted">Your commission of <strong class="text-success">ETB <span id="commissionAmount"></span></strong> will be reflected in your dashboard within <strong>5 minutes</strong>.</p>
+                    <p class="mb-4 text-muted">Your commission of <strong class="text-success">GHS <span id="commissionAmount"></span></strong> will be reflected in your dashboard within <strong>5 minutes</strong>.</p>
                     <div class="d-flex justify-content-center gap-3">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                         <a href="{{ route('admin.packages') }}" class="btn btn-primary">Proceed</a>

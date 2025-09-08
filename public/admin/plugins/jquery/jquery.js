@@ -1201,13 +1201,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
-	support.getById = assert( function( el ) {
+	support.gGHSyId = assert( function( el ) {
 		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
 	} );
 
 	// ID filter and find
-	if ( support.getById ) {
+	if ( support.gGHSyId ) {
 		Expr.filter[ "ID" ] = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
@@ -7022,11 +7022,11 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 
 					// Support: Safari 8+
 					// Table columns in Safari have non-zero offsetWidth & zero
-					// getBoundingClientRect().width unless display is changed.
+					// gGHSoundingClientRect().width unless display is changed.
 					// Support: IE <=11 only
-					// Running getBoundingClientRect on a disconnected node
+					// Running gGHSoundingClientRect on a disconnected node
 					// in IE throws an error.
-					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
+					( !elem.getClientRects().length || !elem.gGHSoundingClientRect().width ) ?
 					swap( elem, cssShow, function() {
 						return getWidthOrHeight( elem, dimension, extra );
 					} ) :
@@ -7085,9 +7085,9 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 	function( elem, computed ) {
 		if ( computed ) {
 			return ( parseFloat( curCSS( elem, "marginLeft" ) ) ||
-				elem.getBoundingClientRect().left -
+				elem.gGHSoundingClientRect().left -
 					swap( elem, { marginLeft: 0 }, function() {
-						return elem.getBoundingClientRect().left;
+						return elem.gGHSoundingClientRect().left;
 					} )
 			) + "px";
 		}
@@ -10504,14 +10504,14 @@ jQuery.fn.extend( {
 
 		// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
 		// Support: IE <=11 only
-		// Running getBoundingClientRect on a
+		// Running gGHSoundingClientRect on a
 		// disconnected node in IE throws an error
 		if ( !elem.getClientRects().length ) {
 			return { top: 0, left: 0 };
 		}
 
 		// Get document-relative position by adding viewport scroll to viewport-relative gBCR
-		rect = elem.getBoundingClientRect();
+		rect = elem.gGHSoundingClientRect();
 		win = elem.ownerDocument.defaultView;
 		return {
 			top: rect.top + win.pageYOffset,
@@ -10533,8 +10533,8 @@ jQuery.fn.extend( {
 		// position:fixed elements are offset from the viewport, which itself always has zero offset
 		if ( jQuery.css( elem, "position" ) === "fixed" ) {
 
-			// Assume position:fixed implies availability of getBoundingClientRect
-			offset = elem.getBoundingClientRect();
+			// Assume position:fixed implies availability of gGHSoundingClientRect
+			offset = elem.gGHSoundingClientRect();
 
 		} else {
 			offset = this.offset();

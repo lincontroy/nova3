@@ -74,13 +74,13 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="fw-bold text-primary">ETB {{ number_format($order->price, 2) }}</span>
+                                                <span class="fw-bold text-primary">GHS {{ number_format($order->price, 2) }}</span>
                                             </td>
                                             <td>
-                                                <span class="fw-bold text-success">ETB {{ number_format($order->product_value, 2) }}</span>
+                                                <span class="fw-bold text-success">GHS {{ number_format($order->product_value, 2) }}</span>
                                             </td>
                                             <td>
-                                                <span class="fw-bold text-warning">ETB {{ number_format($order->commission, 2) }}</span>
+                                                <span class="fw-bold text-warning">GHS {{ number_format($order->commission, 2) }}</span>
                                             </td>
                                             <td>
                                                 @switch($order->status)
@@ -154,17 +154,17 @@
                                                         <hr>
                                                         <div class="row">
                                                             <div class="col-sm-6"><strong>Price:</strong></div>
-                                                            <div class="col-sm-6">ETB {{ number_format($order->price, 2) }}</div>
+                                                            <div class="col-sm-6">GHS {{ number_format($order->price, 2) }}</div>
                                                         </div>
                                                         <hr>
                                                         <div class="row">
                                                             <div class="col-sm-6"><strong>Product Value:</strong></div>
-                                                            <div class="col-sm-6">ETB {{ number_format($order->product_value, 2) }}</div>
+                                                            <div class="col-sm-6">GHS {{ number_format($order->product_value, 2) }}</div>
                                                         </div>
                                                         <hr>
                                                         <div class="row">
                                                             <div class="col-sm-6"><strong>Commission:</strong></div>
-                                                            <div class="col-sm-6">ETB {{ number_format($order->commission, 2) }}</div>
+                                                            <div class="col-sm-6">GHS {{ number_format($order->commission, 2) }}</div>
                                                         </div>
                                                         <hr>
                                                         <div class="row">

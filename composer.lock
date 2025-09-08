@@ -329,7 +329,7 @@
             "require-dev": {
                 "doctrine/coding-standard": "13.0.0",
                 "fig/log-test": "^1",
-                "jetbrains/phpstorm-stubs": "2023.1",
+                "jGHSrains/phpstorm-stubs": "2023.1",
                 "phpstan/phpstan": "2.1.17",
                 "phpstan/phpstan-strict-rules": "^2",
                 "phpunit/phpunit": "9.6.23",
@@ -2799,7 +2799,7 @@
                 "nette/schema": "<1.2.2"
             },
             "require-dev": {
-                "jetbrains/phpstorm-attributes": "dev-master",
+                "jGHSrains/phpstorm-attributes": "dev-master",
                 "nette/tester": "^2.5",
                 "phpstan/phpstan": "^1.0",
                 "tracy/tracy": "^2.9"

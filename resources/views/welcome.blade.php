@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nova Investments - Strategic Advertising Solutions</title>
+    <title>Nova orderss - Strategic Advertising Solutions</title>
     <style>
         * {
             margin: 0;
@@ -511,7 +511,7 @@
     <div class="container">
         <div class="header-inner">
             <a href="#home" class="logo">
-                <img src="logo.png" alt="Nova Investments" style="height:50px;">
+                <img src="logo.png" alt="Nova orderss" style="height:50px;">
             </a>
             <nav>
                 <ul class="nav">
@@ -532,7 +532,7 @@
         <div class="container">
             <div class="hero-content animate-fade-in">
                 <h1>Strategic Advertising Solutions</h1>
-                <p>Elevate your brand with Nova Investments' innovative advertising strategies. We create compelling campaigns that drive results and maximize your ROI.</p>
+                <p>Elevate your brand with Nova orderss' innovative advertising strategies. We create compelling campaigns that drive results and maximize your ROI.</p>
                 <div class="cta-buttons">
                     <a href="#about" class="btn btn-primary">Learn More</a>
                     <a href="/register" class="btn btn-secondary">Get Started</a>
@@ -546,8 +546,8 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About Nova Investments</h2>
-                    <p>At Nova Investments, we're passionate about transforming brands through strategic advertising. With over a decade of experience, we've helped hundreds of businesses achieve their marketing goals.</p>
+                    <h2>About Nova orderss</h2>
+                    <p>At Nova orderss, we're passionate about transforming brands through strategic advertising. With over a decade of experience, we've helped hundreds of businesses achieve their marketing goals.</p>
                     <p>Our team of creative professionals and data-driven strategists work together to deliver campaigns that not only look great but also perform exceptionally well in today's competitive market.</p>
                     <p>We believe in building long-term partnerships with our clients, understanding their unique challenges, and creating tailored solutions that drive measurable results.</p>
                 </div>
@@ -586,7 +586,7 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What services does Nova Investments offer?</span>
+                        <span>What services does Nova orderss offer?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
@@ -643,7 +643,7 @@
                         <div class="contact-icon">📧</div>
                         <div>
                             <h3>Email</h3>
-                            <p>info@novainvestments.store</p>
+                            <p>info@novaorderss.store</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -696,7 +696,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <p>&copy; 2024 Nova Investments. All rights reserved.</p>
+                    <p>&copy; 2024 Nova orderss. All rights reserved.</p>
                 </div>
                 <div class="social-links">
                     <a href="#" title="Facebook">📘</a>

@@ -50,7 +50,7 @@
             cW: 'clientWidth',
             sW: 'scrollWidth',
             hOP: 'hasOwnProperty',
-            bCR: 'getBoundingClientRect'
+            bCR: 'gGHSoundingClientRect'
         };
         var VENDORS = (function () {
             //https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix
@@ -3619,7 +3619,7 @@
                         if (!_nativeScrollbarStyling) {
                             var viewportElementResetCSS = {};
                             var resetXTmp = _hasOverflowCache.y && _hideOverflowCache.ys && !ignoreOverlayScrollbarHiding ? (_nativeScrollbarIsOverlaid.y ? _viewportElement.css(isRTLLeft) : -_nativeScrollbarSize.y) : 0;
-                            var resetBottomTmp = _hasOverflowCache.x && _hideOverflowCache.xs && !ignoreOverlayScrollbarHiding ? (_nativeScrollbarIsOverlaid.x ? _viewportElement.css(_strBottom) : -_nativeScrollbarSize.x) : 0;
+                            var resGHSottomTmp = _hasOverflowCache.x && _hideOverflowCache.xs && !ignoreOverlayScrollbarHiding ? (_nativeScrollbarIsOverlaid.x ? _viewportElement.css(_strBottom) : -_nativeScrollbarSize.x) : 0;
                             setTopRightBottomLeft(viewportElementResetCSS, _strEmpty);
                             _viewportElement.css(viewportElementResetCSS);
                         }
@@ -3639,7 +3639,7 @@
 
                         //apply the correct viewport style and measure viewport size
                         if (!_nativeScrollbarStyling) {
-                            viewportElementResetCSS[_strBottom] = wasHeightAuto ? _strEmpty : resetBottomTmp;
+                            viewportElementResetCSS[_strBottom] = wasHeightAuto ? _strEmpty : resGHSottomTmp;
                             viewportElementResetCSS[isRTLLeft] = wasWidthAuto ? _strEmpty : resetXTmp;
                             _viewportElement.css(viewportElementResetCSS);
                         }

@@ -118,7 +118,7 @@
             this.s.displayed = false;
             table = this.s.dt;
             this.selections = [];
-            this.s.colOpts = this.colExists ? this._getOptions() : this._getBonusOptions();
+            this.s.colOpts = this.colExists ? this._getOptions() : this._gGHSonusOptions();
             var colOpts = this.s.colOpts;
             var clear = $('<button type="button">X</button>').addClass(this.classes.paneButton);
             clear.text(table.i18n('searchPanes.clearPane', this.c.i18n.clearPane));
@@ -1206,7 +1206,7 @@
          *
          * @returns {object} The options for the row extended to include the options from the user.
          */
-        SearchPane.prototype._getBonusOptions = function () {
+        SearchPane.prototype._gGHSonusOptions = function () {
             // We need to reset the thresholds as if they have a value in colOpts then that value will be used
             var defaultMutator = {
                 orthogonal: {

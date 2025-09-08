@@ -45,7 +45,7 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h3>ETB {{App\Models\Deposit::where('status', '=', 'approved')->sum('amount');}}</h3>
+                    <h3>GHS {{App\Models\Deposit::where('status', '=', 'approved')->sum('amount');}}</h3>
                     <p>Approved Deposits</p>
                 </div>
                 <div class="icon">
@@ -65,7 +65,7 @@
          <div class="col-lg-4 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h5>ETB {{ $walletBalance }}</h5>
+                    <h5>GHS {{ $wallGHSalance }}</h5>
                     <p>Wallet balance</p>
                 </div>
                 <div class="icon">
@@ -78,7 +78,7 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-success">
                 <div class="inner">
-                    <h5>ETB {{ $totalCommissions }}</h5>
+                    <h5>GHS {{ $totalCommissions }}</h5>
                     <p>Total totalCommissions</p>
                 </div>
                 <div class="icon">
@@ -92,7 +92,7 @@
         <div class="col-lg-4 col-6">
             <div class="small-box bg-secondary">
                 <div class="inner">
-                    <h5>ETB {{ $totalWthdrawals }}</h5>
+                    <h5>GHS {{ $totalWthdrawals }}</h5>
                     <p>Total Withdrawals</p>
                 </div>
                 <div class="icon">

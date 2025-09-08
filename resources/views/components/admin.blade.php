@@ -71,7 +71,7 @@
       "title": "Ethereum"
     },
     {
-      "proName": "FX_IDC:ETBUSD",
+      "proName": "FX_IDC:GHSUSD",
       "title": ""
     }
   ],
@@ -105,7 +105,7 @@
                         @endif
                     </div>
                     <div class="info">
-                        <a href="{{ route('admin.dashboard') }}" class="d-block">Nova investment</a>
+                        <a href="{{ route('admin.dashboard') }}" class="d-block">Nova orders</a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -146,7 +146,7 @@
     <!-- ./wrapper -->
     <footer class="main-footer">
         <strong>Copyright © 2023-{{ date('Y') }} <a href="/">
-                Nova investments</a>.</strong> All rights reserved.
+                Nova orderss</a>.</strong> All rights reserved.
     </footer>
     <!-- ./wrapper -->
 

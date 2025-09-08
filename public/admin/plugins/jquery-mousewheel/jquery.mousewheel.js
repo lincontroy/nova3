@@ -75,7 +75,7 @@
 
         settings: {
             adjustOldDeltas: true, // see shouldAdjustOldDeltas() below
-            normalizeOffset: true  // calls getBoundingClientRect for each event
+            normalizeOffset: true  // calls gGHSoundingClientRect for each event
         }
     };
 
@@ -173,8 +173,8 @@
         deltaY = Math[ deltaY >= 1 ? 'floor' : 'ceil' ](deltaY / lowestDelta);
 
         // Normalise offsetX and offsetY properties
-        if ( special.settings.normalizeOffset && this.getBoundingClientRect ) {
-            var boundingRect = this.getBoundingClientRect();
+        if ( special.settings.normalizeOffset && this.gGHSoundingClientRect ) {
+            var boundingRect = this.gGHSoundingClientRect();
             offsetX = event.clientX - boundingRect.left;
             offsetY = event.clientY - boundingRect.top;
         }

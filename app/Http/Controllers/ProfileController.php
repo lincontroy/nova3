@@ -204,12 +204,13 @@ class ProfileController extends Controller
     {
         // Consider moving this to a config file or database
         $packages = collect([
-            ['name' => 'Level 1', 'price' => 2500, 'product_value' => 800000],
-            ['name' => 'Level 2', 'price' => 5500, 'product_value' => 1200000],
-            ['name' => 'Level 3', 'price' => 8500, 'product_value' => 1600000],
-            ['name' => 'Level 4', 'price' => 12000, 'product_value' => 2000000],
-            ['name' => 'Level 5', 'price' => 24000, 'product_value' => 2500000],
+            ['name' => 'Level 1', 'price' => 250,  'product_value' => 80000],
+            ['name' => 'Level 2', 'price' => 550,  'product_value' => 120000],
+            ['name' => 'Level 3', 'price' => 850,  'product_value' => 160000],
+            ['name' => 'Level 4', 'price' => 1200, 'product_value' => 200000],
+            ['name' => 'Level 5', 'price' => 2400, 'product_value' => 240000],
         ]);
+        
         
         $package = $packages->firstWhere('name', $name);
         
@@ -327,7 +328,7 @@ private function getAllLevelImagesAlternative($levelNumber)
         if ($user->wallet_balance < $packagePrice) {
             return response()->json([
                 'success' => false,
-                'message' => 'Insufficient wallet balance. Required: ETB ' . number_format($packagePrice) . ', Available: ETB ' . number_format($user->wallet_balance ?? 0),
+                'message' => 'Insufficient wallet balance. Required: GHS ' . number_format($packagePrice) . ', Available: GHS ' . number_format($user->wallet_balance ?? 0),
                 'required_amount' => number_format($packagePrice),
                 'available_balance' => number_format($user->wallet_balance ?? 0)
             ], 400);
@@ -354,7 +355,7 @@ private function getAllLevelImagesAlternative($levelNumber)
     
         return response()->json([
             'success' => true,
-            'message' => 'Order created successfully! Your commission of ETB ' . number_format($commission) . ' will be reflected in your dashboard within 5 minutes.',
+            'message' => 'Order created successfully! Your commission of GHS ' . number_format($commission) . ' will be reflected in your dashboard within 5 minutes.',
             'order_id' => $order->id,
             'commission' => number_format($commission),
             'remaining_balance' => number_format($user->fresh()->wallet_balance)
@@ -416,7 +417,7 @@ private function getAllLevelImagesAlternative($levelNumber)
         return view('dashboard', [
             'user'=>$userCount,
             'category'=>$categoryCount,
-            'walletBalance' => $user->wallet_balance,
+            'wallGHSalance' => $user->wallet_balance,
             'totalCommissions' => $user->total_commissions,
             'totalWthdrawals' => $user->total_withdrawals,
         ]);

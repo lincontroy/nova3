@@ -2197,8 +2197,8 @@
 			// scrollbar on the left, rather than the right.
 			browser.bScrollbarLeft = Math.round( inner.offset().left ) !== 1;
 	
-			// IE8- don't provide height and width for getBoundingClientRect
-			browser.bBounding = n[0].getBoundingClientRect().width ? true : false;
+			// IE8- don't provide height and width for gGHSoundingClientRect
+			browser.bBounding = n[0].gGHSoundingClientRect().width ? true : false;
 	
 			n.remove();
 		}
@@ -5781,10 +5781,10 @@
 				var cell = $(headerCells[i]);
 				var border = cell.outerWidth() - cell.width();
 	
-				// Use getBounding... where possible (not IE8-) because it can give
+				// Use gGHSounding... where possible (not IE8-) because it can give
 				// sub-pixel accuracy, which we then want to round up!
 				var bounding = browser.bBounding ?
-					Math.ceil( headerCells[i].getBoundingClientRect().width ) :
+					Math.ceil( headerCells[i].gGHSoundingClientRect().width ) :
 					cell.outerWidth();
 	
 				// Total is tracked to remove any sub-pixel errors as the outerWidth
@@ -13346,7 +13346,7 @@
 			"bScrollbarLeft": false,
 	
 			/**
-			 * Flag for if `getBoundingClientRect` is fully supported or not
+			 * Flag for if `gGHSoundingClientRect` is fully supported or not
 			 *  @type boolean
 			 *  @default false
 			 */

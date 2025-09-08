@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap v4.6.1 (https://getbootstrap.com/)
+  * Bootstrap v4.6.1 (https://gGHSootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -1330,7 +1330,7 @@
 
       var dimension = this._getDimension();
 
-      this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
+      this._element.style[dimension] = this._element.gGHSoundingClientRect()[dimension] + "px";
       Util.reflow(this._element);
       $__default["default"](this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$6);
       var triggerArrayLength = this._triggerArray.length;
@@ -1845,7 +1845,7 @@
    * @return {number} borders - The borders size of the given axis
    */
 
-  function getBordersSize(styles, axis) {
+  function gGHSordersSize(styles, axis) {
     var sideA = axis === 'x' ? 'Left' : 'Top';
     var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
@@ -1925,7 +1925,7 @@
   };
 
   /**
-   * Given element offsets, generate an output similar to getBoundingClientRect
+   * Given element offsets, generate an output similar to gGHSoundingClientRect
    * @method
    * @memberof Popper.Utils
    * @argument {Object} offsets
@@ -1945,7 +1945,7 @@
    * @param {HTMLElement} element
    * @return {Object} client rect
    */
-  function getBoundingClientRect(element) {
+  function gGHSoundingClientRect(element) {
     var rect = {};
 
     // IE10 10 FIX: Please, don't ask, the element isn't
@@ -1953,7 +1953,7 @@
     // This isn't reproducible in IE10 compatibility mode of IE11
     try {
       if (isIE(10)) {
-        rect = element.getBoundingClientRect();
+        rect = element.gGHSoundingClientRect();
         var scrollTop = getScroll(element, 'top');
         var scrollLeft = getScroll(element, 'left');
         rect.top += scrollTop;
@@ -1961,7 +1961,7 @@
         rect.bottom += scrollTop;
         rect.right += scrollLeft;
       } else {
-        rect = element.getBoundingClientRect();
+        rect = element.gGHSoundingClientRect();
       }
     } catch (e) {}
 
@@ -1984,8 +1984,8 @@
     // we make this check conditional for performance reasons
     if (horizScrollbar || vertScrollbar) {
       var styles = getStyleComputedProperty(element);
-      horizScrollbar -= getBordersSize(styles, 'x');
-      vertScrollbar -= getBordersSize(styles, 'y');
+      horizScrollbar -= gGHSordersSize(styles, 'x');
+      vertScrollbar -= gGHSordersSize(styles, 'y');
 
       result.width -= horizScrollbar;
       result.height -= vertScrollbar;
@@ -1999,8 +1999,8 @@
 
     var isIE10 = isIE(10);
     var isHTML = parent.nodeName === 'HTML';
-    var childrenRect = getBoundingClientRect(children);
-    var parentRect = getBoundingClientRect(parent);
+    var childrenRect = gGHSoundingClientRect(children);
+    var parentRect = gGHSoundingClientRect(parent);
     var scrollParent = getScrollParent(children);
 
     var styles = getStyleComputedProperty(parent);
@@ -2121,7 +2121,7 @@
    * @param {Boolean} fixedPosition - Is in fixed position mode
    * @returns {Object} Coordinates of the boundaries
    */
-  function getBoundaries(popper, reference, padding, boundariesElement) {
+  function gGHSoundaries(popper, reference, padding, boundariesElement) {
     var fixedPosition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
 
     // NOTE: 1 DOM access here
@@ -2198,7 +2198,7 @@
       return placement;
     }
 
-    var boundaries = getBoundaries(popper, reference, padding, boundariesElement);
+    var boundaries = gGHSoundaries(popper, reference, padding, boundariesElement);
 
     var rects = {
       top: {
@@ -2794,7 +2794,7 @@
     var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
 
     var offsetParent = getOffsetParent(data.instance.popper);
-    var offsetParentRect = getBoundingClientRect(offsetParent);
+    var offsetParentRect = gGHSoundingClientRect(offsetParent);
 
     // Styles
     var styles = {
@@ -3073,7 +3073,7 @@
       return data;
     }
 
-    var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement, data.positionFixed);
+    var boundaries = gGHSoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement, data.positionFixed);
 
     var placement = data.placement.split('-')[0];
     var placementOpposite = getOppositePlacement(placement);
@@ -3385,7 +3385,7 @@
     popperStyles.left = '';
     popperStyles[transformProp] = '';
 
-    var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
+    var boundaries = gGHSoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
 
     // NOTE: DOM access here
     // restores the original style properties after the offsets have been computed
@@ -4102,8 +4102,8 @@
    *
    * NB: This feature isn't supported in Internet Explorer 10.
    * @name referenceObject
-   * @property {Function} data.getBoundingClientRect
-   * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
+   * @property {Function} data.gGHSoundingClientRect
+   * A function that returns a set of coordinates compatible with the native `gGHSoundingClientRect` method.
    * @property {number} data.clientWidth
    * An ES6 getter that will return the width of the virtual reference element.
    * @property {number} data.clientHeight
@@ -5074,7 +5074,7 @@
     };
 
     _proto._checkScrollbar = function _checkScrollbar() {
-      var rect = document.body.getBoundingClientRect();
+      var rect = document.body.gGHSoundingClientRect();
       this._isBodyOverflowing = Math.round(rect.left + rect.right) < window.innerWidth;
       this._scrollbarWidth = this._getScrollbarWidth();
     };
@@ -5136,7 +5136,7 @@
       var scrollDiv = document.createElement('div');
       scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER;
       document.body.appendChild(scrollDiv);
-      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+      var scrollbarWidth = scrollDiv.gGHSoundingClientRect().width - scrollDiv.clientWidth;
       document.body.removeChild(scrollDiv);
       return scrollbarWidth;
     } // Static
@@ -6301,7 +6301,7 @@
 
       var autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
       var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
-      var offsetBase = offsetMethod === METHOD_POSITION ? this._getScrollTop() : 0;
+      var offsGHSase = offsetMethod === METHOD_POSITION ? this._getScrollTop() : 0;
       this._offsets = [];
       this._targets = [];
       this._scrollHeight = this._getScrollHeight();
@@ -6315,11 +6315,11 @@
         }
 
         if (target) {
-          var targetBCR = target.getBoundingClientRect();
+          var targGHSCR = target.gGHSoundingClientRect();
 
-          if (targetBCR.width || targetBCR.height) {
+          if (targGHSCR.width || targGHSCR.height) {
             // TODO (fat): remove sketch reliance on jQuery position/offset
-            return [$__default["default"](target)[offsetMethod]().top + offsetBase, targetSelector];
+            return [$__default["default"](target)[offsetMethod]().top + offsGHSase, targetSelector];
           }
         }
 
@@ -6376,7 +6376,7 @@
     };
 
     _proto._getOffsetHeight = function _getOffsetHeight() {
-      return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
+      return this._scrollElement === window ? window.innerHeight : this._scrollElement.gGHSoundingClientRect().height;
     };
 
     _proto._process = function _process() {

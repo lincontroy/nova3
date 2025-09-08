@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{ $deposit->id }}</td>
                                 <td>{{ $deposit->user->name }}</td>
-                                <td>ETB {{ number_format($deposit->amount, 2) }}</td>
+                                <td>GHS {{ number_format($deposit->amount, 2) }}</td>
                                 <td>{{ $deposit->payment_method }}</td>
                                 <td>{{ $deposit->reference_number }}</td>
                                 <td>

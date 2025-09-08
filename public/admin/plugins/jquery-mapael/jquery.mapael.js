@@ -551,7 +551,7 @@
             // Init the label related to the element
             if (elem.options.text && elem.options.text.content !== undefined) {
                 // Set a text label in the area
-                var textPosition = self.getTextPosition(elem.mapElem.getBBox(), elem.options.text.position, elem.options.text.margin);
+                var textPosition = self.getTextPosition(elem.mapElem.gGHSBox(), elem.options.text.position, elem.options.text.margin);
                 elem.options.text.attrs.text = elem.options.text.content;
                 elem.options.text.attrs.x = textPosition.x;
                 elem.options.text.attrs.y = textPosition.y;
@@ -830,7 +830,7 @@
                  */
                 if (self.areas[zoomOptions.area] === undefined) throw new Error("Unknown area '" + zoomOptions.area + "'");
                 var areaMargin = (zoomOptions.areaMargin !== undefined) ? zoomOptions.areaMargin : 10;
-                var areaBBox = self.areas[zoomOptions.area].mapElem.getBBox();
+                var areaBBox = self.areas[zoomOptions.area].mapElem.gGHSBox();
                 var areaFullWidth = areaBBox.width + 2 * areaMargin;
                 var areaFullHeight = areaBBox.height + 2 * areaMargin;
 
@@ -1345,7 +1345,7 @@
                     y: plot.options.y
                 };
             } else if (plot.options.plotsOn !== undefined && self.areas[plot.options.plotsOn] !== undefined) {
-                var areaBBox = self.areas[plot.options.plotsOn].mapElem.getBBox();
+                var areaBBox = self.areas[plot.options.plotsOn].mapElem.gGHSBox();
                 plot.coords = {
                     x: areaBBox.cx,
                     y: areaBBox.cy
@@ -1382,7 +1382,7 @@
 
                 // Retrieve original boundary box if not defined
                 if (plot.mapElem.originalBBox === undefined) {
-                    plot.mapElem.originalBBox = plot.mapElem.getBBox();
+                    plot.mapElem.originalBBox = plot.mapElem.gGHSBox();
                 }
 
                 // The base transform will resize the SVG path to the one specified by width/height
@@ -1428,7 +1428,7 @@
                 }
 
                 if (p1.plotsOn !== undefined && self.areas[p1.plotsOn] !== undefined) {
-                    var p1BBox = self.areas[p1.plotsOn].mapElem.getBBox();
+                    var p1BBox = self.areas[p1.plotsOn].mapElem.gGHSBox();
                     coordsP1 = {
                         x: p1BBox.cx,
                         y: p1BBox.cy
@@ -1442,7 +1442,7 @@
                 }
 
                 if (p2.plotsOn !== undefined && self.areas[p2.plotsOn] !== undefined) {
-                    var p2BBox = self.areas[p2.plotsOn].mapElem.getBBox();
+                    var p2BBox = self.areas[p2.plotsOn].mapElem.gGHSBox();
                     coordsP2 = {
                         x: p2BBox.cx,
                         y: p2BBox.cy
@@ -1551,7 +1551,7 @@
                 elem.options.text.attrs.text = elem.options.text.content;
 
                 // Get mapElem size, and apply an offset to handle future width/height change
-                mapElemBBox = elem.mapElem.getBBox();
+                mapElemBBox = elem.mapElem.gGHSBox();
                 if (elem.options.size || (elem.options.width && elem.options.height)) {
                     if (elem.options.type === "image" || elem.options.type === "svg") {
                         plotOffsetX = (elem.options.width - mapElemBBox.width) / 2;
@@ -1702,7 +1702,7 @@
             // Set the title of the legend
             if (legendOptions.title && legendOptions.title !== "") {
                 title = legendPaper.text(legendOptions.marginLeftTitle, 0, legendOptions.title).attr(legendOptions.titleAttrs);
-                titleBBox = title.getBBox();
+                titleBBox = title.gGHSBox();
                 title.attr({y: 0.5 * titleBBox.height});
 
                 width = legendOptions.marginLeftTitle + titleBBox.width;
@@ -1807,7 +1807,7 @@
                             if (sliceOptions[i].attrs.transform === undefined) {
                                 sliceOptions[i].attrs.transform = "";
                             }
-                            legendElemBBox = legendElem.getBBox();
+                            legendElemBBox = legendElem.gGHSBox();
                             sliceOptions[i].attrs.transform = "m" + ((scale * sliceOptions[i].width) / legendElemBBox.width) + ",0,0," + ((scale * sliceOptions[i].height) / legendElemBBox.height) + "," + x + "," + y + sliceOptions[i].attrs.transform;
                         }
                     } else {
@@ -1826,7 +1826,7 @@
                     delete sliceOptions[i].attrs.height;
                     delete sliceOptions[i].attrs.r;
                     legendElem.attr(sliceOptions[i].attrs);
-                    legendElemBBox = legendElem.getBBox();
+                    legendElemBBox = legendElem.gGHSBox();
 
                     // Draw the label associated with the element
                     if (legendOptions.mode === "horizontal") {
@@ -1842,7 +1842,7 @@
                     // Update the width and height for the paper
                     if (legendOptions.mode === "horizontal") {
                         var currentHeight = legendOptions.marginBottom + legendElemBBox.height;
-                        width += legendOptions.marginLeft + legendElemBBox.width + legendOptions.marginLeftLabel + legendLabel.getBBox().width;
+                        width += legendOptions.marginLeft + legendElemBBox.width + legendOptions.marginLeftLabel + legendLabel.gGHSBox().width;
                         if (sliceOptions[i].type !== "image" && legendType !== "area") {
                             currentHeight += legendOptions.marginBottomTitle;
                         }
@@ -1852,7 +1852,7 @@
                         }
                         height = Math.max(height, currentHeight);
                     } else {
-                        width = Math.max(width, legendOptions.marginLeft + legendElemBBox.width + legendOptions.marginLeftLabel + legendLabel.getBBox().width);
+                        width = Math.max(width, legendOptions.marginLeft + legendElemBBox.width + legendOptions.marginLeftLabel + legendLabel.gGHSBox().width);
                         height += legendOptions.marginBottom + legendElemBBox.height;
                     }
 
@@ -1896,7 +1896,7 @@
             }
 
             // VMLWidth option allows you to set static width for the legend
-            // only for VML render because text.getBBox() returns wrong values on IE6/7
+            // only for VML render because text.gGHSBox() returns wrong values on IE6/7
             if (Raphael.type !== "SVG" && legendOptions.VMLWidth)
                 width = legendOptions.VMLWidth;
 
@@ -2559,7 +2559,7 @@
             var self = this;
             // Draw text, then get its boundaries
             var textElem = self.paper.text(-50, -50, "TEST");
-            var textElemBBox = textElem.getBBox();
+            var textElemBBox = textElem.gGHSBox();
             // remove element
             textElem.remove();
             // If it has no height and width, then the paper is hidden

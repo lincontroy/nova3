@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="card-title mb-2 opacity-75">Total Deposits</h6>
-                        <h3 class="mb-0 fw-bold">ETB {{ number_format($deposits->sum('amount'), 2) }}</h3>
+                        <h3 class="mb-0 fw-bold">GHS {{ number_format($deposits->sum('amount'), 2) }}</h3>
                     </div>
                     <div class="opacity-50">
                         <i class="fas fa-coins fa-2x"></i>
@@ -65,7 +65,7 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="card-title mb-2 opacity-75">Completed</h6>
-                        <h3 class="mb-0 fw-bold">ETB {{ number_format($deposits->where('status', 'completed')->sum('amount'), 2) }}</h3>
+                        <h3 class="mb-0 fw-bold">GHS {{ number_format($deposits->where('status', 'completed')->sum('amount'), 2) }}</h3>
                     </div>
                     <div class="opacity-50">
                         <i class="fas fa-check-circle fa-2x"></i>
@@ -86,7 +86,7 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="card-title mb-2 opacity-75">Pending</h6>
-                        <h3 class="mb-0 fw-bold">ETB {{ number_format($deposits->where('status', 'pending')->sum('amount'), 2) }}</h3>
+                        <h3 class="mb-0 fw-bold">GHS {{ number_format($deposits->where('status', 'pending')->sum('amount'), 2) }}</h3>
                     </div>
                     <div class="opacity-50">
                         <i class="fas fa-clock fa-2x"></i>
@@ -107,7 +107,7 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="card-title mb-2 opacity-75">Failed</h6>
-                        <h3 class="mb-0 fw-bold">ETB {{ number_format($deposits->where('status', 'failed')->sum('amount'), 2) }}</h3>
+                        <h3 class="mb-0 fw-bold">GHS {{ number_format($deposits->where('status', 'failed')->sum('amount'), 2) }}</h3>
                     </div>
                     <div class="opacity-50">
                         <i class="fas fa-exclamation-triangle fa-2x"></i>
@@ -181,7 +181,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <span class="fw-bold text-success">ETB {{ number_format($deposit->amount, 2) }}</span>
+                                                <span class="fw-bold text-success">GHS {{ number_format($deposit->amount, 2) }}</span>
                                             </td>
                                             <td>
                                                 <span class="badge bg-info">{{ ucfirst(str_replace('_', ' ', $deposit->payment_method)) }}</span>
@@ -263,7 +263,7 @@
                                                         <hr>
                                                         <div class="row">
                                                             <div class="col-sm-6"><strong>Amount:</strong></div>
-                                                            <div class="col-sm-6">ETB {{ number_format($deposit->amount, 2) }}</div>
+                                                            <div class="col-sm-6">GHS {{ number_format($deposit->amount, 2) }}</div>
                                                         </div>
                                                         <hr>
                                                         <div class="row">
@@ -359,7 +359,7 @@
                     <div class="mb-3">
                         <label for="amount" class="form-label">Amount <span class="text-danger">*</span></label>
                         <div class="input-group">
-                            <span class="input-group-text">ETB</span>
+                            <span class="input-group-text">GHS</span>
                             <input type="number" 
                                    class="form-control @error('amount') is-invalid @enderror" 
                                    id="amount" 

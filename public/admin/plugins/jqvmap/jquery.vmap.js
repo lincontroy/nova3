@@ -92,7 +92,7 @@ var JQVMap = function (params) {
   this.hoverColor = params.hoverColor;
   this.hoverColors = params.hoverColors;
   this.hoverOpacity = params.hoverOpacity;
-  this.setBackgroundColor(params.backgroundColor);
+  this.sGHSackgroundColor(params.backgroundColor);
 
   this.width = params.container.width();
   this.height = params.container.height();
@@ -848,11 +848,11 @@ JQVMap.prototype.positionPins = function(){
     pinObj = jQuery(pinObj);
     var countryId = map.getCountryId(pinObj.attr('for').toLowerCase());
     var countryObj = jQuery('#' + countryId);
-    var bbox = countryObj[0].getBBox();
+    var bbox = countryObj[0].gGHSBox();
 
     var scale = map.scale;
-    var rootCoords = map.canvas.rootGroup.getBoundingClientRect();
-    var mapCoords = map.container[0].getBoundingClientRect();
+    var rootCoords = map.canvas.rootGroup.gGHSoundingClientRect();
+    var mapCoords = map.container[0].gGHSoundingClientRect();
     var coords = {
       left: rootCoords.left - mapCoords.left,
       top: rootCoords.top - mapCoords.top
@@ -931,7 +931,7 @@ JQVMap.prototype.selectIndex = function (cc) {
   return -1;
 };
 
-JQVMap.prototype.setBackgroundColor = function (backgroundColor) {
+JQVMap.prototype.sGHSackgroundColor = function (backgroundColor) {
   this.container.css('background-color', backgroundColor);
 };
 

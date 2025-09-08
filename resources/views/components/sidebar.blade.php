@@ -99,34 +99,21 @@
         <p>Levels</p>
     </a>
 </li>
-
-
-
-<li class="nav-item has-treeview {{ Route::is('admin.wallet.*') ? 'menu-open' : '' }}">
-    <a href="#" class="nav-link {{ Route::is('admin.wallet.*') ? 'active' : '' }}">
-        <i class="nav-icon fas fa-wallet"></i>
-        <p>
-            Wallet
-            <i class="right fas fa-angle-left"></i>
-        </p>
+<li class="nav-item">
+    <a href="{{ route('admin.wallet.deposit') }}" 
+       class="nav-link {{ Route::is('admin.wallet.deposit') ? 'active' : '' }}">
+        <i class="fas fa-arrow-down nav-icon text-success"></i>
+        <p>Deposit</p>
     </a>
-    <ul class="nav nav-treeview">
-        <li class="nav-item">
-            <a href="{{ route('admin.wallet.deposit') }}" 
-               class="nav-link {{ Route::is('admin.wallet.deposit') ? 'active' : '' }}">
-                <i class="fas fa-arrow-down nav-icon text-success"></i>
-                <p>Deposit</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('admin.wallet.withdraw') }}" 
-               class="nav-link {{ Route::is('admin.wallet.withdraw') ? 'active' : '' }}">
-                <i class="fas fa-arrow-up nav-icon text-danger"></i>
-                <p>Withdraw</p>
-            </a>
-        </li>
-    </ul>
 </li>
+<li class="nav-item">
+    <a href="{{ route('admin.wallet.withdraw') }}" 
+       class="nav-link {{ Route::is('admin.wallet.withdraw') ? 'active' : '' }}">
+        <i class="fas fa-arrow-up nav-icon text-danger"></i>
+        <p>Withdraw</p>
+    </a>
+</li>
+
 
 
 

@@ -64,7 +64,7 @@
                 <i class="fas fa-wallet fa-2x text-primary mb-2"></i>
                 <h5 class="card-title">Wallet Balance</h5>
                 <p class="card-text h5 text-success">
-                    ETB {{ number_format($user->wallet_balance, 2) }}
+                    GHS {{ number_format($user->wallet_balance, 2) }}
                 </p>
             </div>
         </div>
@@ -77,7 +77,7 @@
                 <i class="fas fa-coins fa-2x text-warning mb-2"></i>
                 <h5 class="card-title">Total Commissions</h5>
                 <p class="card-text h5 text-info">
-                    ETB {{ number_format($totalCommissions, 2) }}
+                    GHS {{ number_format($totalCommissions, 2) }}
                 </p>
             </div>
         </div>
@@ -90,7 +90,7 @@
                 <i class="fas fa-hand-holding-usd fa-2x text-danger mb-2"></i>
                 <h5 class="card-title">Total Withdrawals</h5>
                 <p class="card-text h5 text-danger">
-                    ETB {{ number_format($totalWithdrawals, 2) }}
+                    GHS {{ number_format($totalWithdrawals, 2) }}
                 </p>
             </div>
         </div>

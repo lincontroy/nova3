@@ -126,7 +126,7 @@ var __webpack_exports__ = {};
         transparent: 'Átlátszó',
         setTransparent: 'Átlászóság beállítása',
         reset: 'Visszaállítás',
-        resetToDefault: 'Alaphelyzetbe állítás'
+        resetToDefault: 'AlaphelyzGHSe állítás'
       },
       shortcut: {
         shortcuts: 'Gyorsbillentyű',

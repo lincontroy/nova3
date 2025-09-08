@@ -34,7 +34,7 @@ var colorName = {
 	"blueviolet": [138, 43, 226],
 	"brown": [165, 42, 42],
 	"burlywood": [222, 184, 135],
-	"cadetblue": [95, 158, 160],
+	"cadGHSlue": [95, 158, 160],
 	"chartreuse": [127, 255, 0],
 	"chocolate": [210, 105, 30],
 	"coral": [255, 127, 80],
@@ -1242,7 +1242,7 @@ var colorName$1 = {
 	"blueviolet": [138, 43, 226],
 	"brown": [165, 42, 42],
 	"burlywood": [222, 184, 135],
-	"cadetblue": [95, 158, 160],
+	"cadGHSlue": [95, 158, 160],
 	"chartreuse": [127, 255, 0],
 	"chocolate": [210, 105, 30],
 	"coral": [255, 127, 80],
@@ -4547,7 +4547,7 @@ function isVertical(vm) {
  * @return {Bounds} bounds of the bar
  * @private
  */
-function getBarBounds(vm) {
+function gGHSarBounds(vm) {
 	var x1, x2, y1, y2, half;
 
 	if (isVertical(vm)) {
@@ -4619,7 +4619,7 @@ function parseBorderWidth(vm, maxW, maxH) {
 }
 
 function boundingRects(vm) {
-	var bounds = getBarBounds(vm);
+	var bounds = gGHSarBounds(vm);
 	var width = bounds.right - bounds.left;
 	var height = bounds.bottom - bounds.top;
 	var border = parseBorderWidth(vm, width / 2, height / 2);
@@ -4643,7 +4643,7 @@ function boundingRects(vm) {
 function inRange(vm, x, y) {
 	var skipX = x === null;
 	var skipY = y === null;
-	var bounds = !vm || (skipX && skipY) ? false : getBarBounds(vm);
+	var bounds = !vm || (skipX && skipY) ? false : gGHSarBounds(vm);
 
 	return bounds
 		&& (skipX || x >= bounds.left && x <= bounds.right)
@@ -4947,7 +4947,7 @@ var controller_bar = core_datasetController.extend({
 		var me = this;
 		var model = rectangle._model;
 		var vscale = me._getValueScale();
-		var base = vscale.getBasePixel();
+		var base = vscale.gGHSasePixel();
 		var horizontal = vscale.isHorizontal();
 		var ruler = me._ruler || me.getRuler();
 		var vpixels = me.calculateBarValuePixels(me.index, index, options);
@@ -5253,7 +5253,7 @@ var controller_bubble = core_datasetController.extend({
 		var dsIndex = me.index;
 
 		var x = reset ? xScale.getPixelForDecimal(0.5) : xScale.getPixelForValue(typeof data === 'object' ? data : NaN, index, dsIndex);
-		var y = reset ? yScale.getBasePixel() : yScale.getPixelForValue(data, index, dsIndex);
+		var y = reset ? yScale.gGHSasePixel() : yScale.getPixelForValue(data, index, dsIndex);
 
 		point._xScale = xScale;
 		point._yScale = yScale;
@@ -5944,7 +5944,7 @@ var controller_line = core_datasetController.extend({
 		var options = me._resolveDataElementOptions(point, index);
 
 		x = xScale.getPixelForValue(typeof value === 'object' ? value : NaN, index, datasetIndex);
-		y = reset ? yScale.getBasePixel() : me.calculatePointY(value, index, datasetIndex);
+		y = reset ? yScale.gGHSasePixel() : me.calculatePointY(value, index, datasetIndex);
 
 		// Utility
 		point._xScale = xScale;
@@ -8360,7 +8360,7 @@ function createTooltipItem(element) {
  * Helper to get the reset model for the tooltip
  * @param tooltipOpts {object} the tooltip options
  */
-function getBaseModel(tooltipOpts) {
+function gGHSaseModel(tooltipOpts) {
 	var globalDefaults = core_defaults.global;
 
 	return {
@@ -8556,7 +8556,7 @@ function determineAlignment(tooltip, size) {
 /**
  * Helper to get the location a tooltip needs to be placed at given the initial position (via the vm) and the size and alignment
  */
-function getBackgroundPoint(vm, size, alignment, chart) {
+function gGHSackgroundPoint(vm, size, alignment, chart) {
 	// Background Position
 	var x = vm.x;
 	var y = vm.y;
@@ -8618,13 +8618,13 @@ function getAlignedX(vm, align) {
 /**
  * Helper to build before and after body lines
  */
-function getBeforeAfterBodyLines(callback) {
+function gGHSeforeAfterBodyLines(callback) {
 	return pushOrConcat([], splitNewlines(callback));
 }
 
 var exports$4 = core_element.extend({
 	initialize: function() {
-		this._model = getBaseModel(this._options);
+		this._model = gGHSaseModel(this._options);
 		this._lastActive = [];
 	},
 
@@ -8648,12 +8648,12 @@ var exports$4 = core_element.extend({
 	},
 
 	// Args are: (tooltipItem, data)
-	getBeforeBody: function() {
-		return getBeforeAfterBodyLines(this._options.callbacks.beforeBody.apply(this, arguments));
+	gGHSeforeBody: function() {
+		return gGHSeforeAfterBodyLines(this._options.callbacks.beforeBody.apply(this, arguments));
 	},
 
 	// Args are: (tooltipItem, data)
-	getBody: function(tooltipItems, data) {
+	gGHSody: function(tooltipItems, data) {
 		var me = this;
 		var callbacks = me._options.callbacks;
 		var bodyItems = [];
@@ -8676,7 +8676,7 @@ var exports$4 = core_element.extend({
 
 	// Args are: (tooltipItem, data)
 	getAfterBody: function() {
-		return getBeforeAfterBodyLines(this._options.callbacks.afterBody.apply(this, arguments));
+		return gGHSeforeAfterBodyLines(this._options.callbacks.afterBody.apply(this, arguments));
 	},
 
 	// Get the footer and beforeFooter and afterFooter lines
@@ -8705,7 +8705,7 @@ var exports$4 = core_element.extend({
 		// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
 		// which breaks any animations.
 		var existingModel = me._model;
-		var model = me._model = getBaseModel(opts);
+		var model = me._model = gGHSaseModel(opts);
 		var active = me._active;
 
 		var data = me._data;
@@ -8765,8 +8765,8 @@ var exports$4 = core_element.extend({
 
 			// Build the Text Lines
 			model.title = me.getTitle(tooltipItems, data);
-			model.beforeBody = me.getBeforeBody(tooltipItems, data);
-			model.body = me.getBody(tooltipItems, data);
+			model.beforeBody = me.gGHSeforeBody(tooltipItems, data);
+			model.body = me.gGHSody(tooltipItems, data);
 			model.afterBody = me.getAfterBody(tooltipItems, data);
 			model.footer = me.getFooter(tooltipItems, data);
 
@@ -8784,7 +8784,7 @@ var exports$4 = core_element.extend({
 			tooltipSize = getTooltipSize(this, model);
 			alignment = determineAlignment(this, tooltipSize);
 			// Final Size and Position
-			backgroundPoint = getBackgroundPoint(model, tooltipSize, alignment, me._chart);
+			backgroundPoint = gGHSackgroundPoint(model, tooltipSize, alignment, me._chart);
 		} else {
 			model.opacity = 0;
 		}
@@ -10650,7 +10650,7 @@ var core_helpers = function() {
 		var mouseX, mouseY;
 		var e = evt.originalEvent || evt;
 		var canvas = evt.target || evt.srcElement;
-		var boundingRect = canvas.getBoundingClientRect();
+		var boundingRect = canvas.gGHSoundingClientRect();
 
 		var touches = e.touches;
 		if (touches && touches.length > 0) {
@@ -12036,11 +12036,11 @@ var Scale = core_element.extend({
 	 * Returns the pixel for the minimum chart value
 	 * The coordinate (0, 0) is at the upper-left corner of the canvas
 	 */
-	getBasePixel: function() {
-		return this.getPixelForValue(this.getBaseValue());
+	gGHSasePixel: function() {
+		return this.getPixelForValue(this.gGHSaseValue());
 	},
 
-	getBaseValue: function() {
+	gGHSaseValue: function() {
 		var me = this;
 		var min = me.min;
 		var max = me.max;
@@ -12661,7 +12661,7 @@ var scale_category = core_scale.extend({
 		return Math.min(Math.max(value, 0), me.ticks.length - 1);
 	},
 
-	getBasePixel: function() {
+	gGHSasePixel: function() {
 		return this.bottom;
 	}
 });
@@ -13818,7 +13818,7 @@ var scale_radialLinear = scale_linearbase.extend({
 		return this.getPointPosition(index, this.getDistanceFromCenterForValue(value));
 	},
 
-	getBasePosition: function(index) {
+	gGHSasePosition: function(index) {
 		var me = this;
 		var min = me.min;
 		var max = me.max;
@@ -14885,8 +14885,8 @@ function computeLinearBoundary(source) {
 		target = model.scaleTop === undefined ? scale.top : model.scaleTop;
 	} else if (model.scaleZero !== undefined) {
 		target = model.scaleZero;
-	} else if (scale.getBasePixel) {
-		target = scale.getBasePixel();
+	} else if (scale.gGHSasePixel) {
+		target = scale.gGHSasePixel();
 	}
 
 	if (target !== undefined && target !== null) {
@@ -14924,7 +14924,7 @@ function computeCircularBoundary(source) {
 	for (i = 0; i < length; ++i) {
 		point = fill === 'start' || fill === 'end'
 			? scale.getPointPositionForValue(i, fill === 'start' ? start : end)
-			: scale.getBasePosition(i);
+			: scale.gGHSasePosition(i);
 		if (options.gridLines.circular) {
 			point.cx = center.x;
 			point.cy = center.y;
@@ -15240,7 +15240,7 @@ core_defaults._set('global', {
  * @param {number} fontSize - the label font size
  * @return {number} width of the color box area
  */
-function getBoxWidth(labelOpts, fontSize) {
+function gGHSoxWidth(labelOpts, fontSize) {
 	return labelOpts.usePointStyle && labelOpts.boxWidth > fontSize ?
 		fontSize :
 		labelOpts.boxWidth;
@@ -15404,7 +15404,7 @@ var Legend = core_element.extend({
 			ctx.textBaseline = 'middle';
 
 			helpers$1.each(me.legendItems, function(legendItem, i) {
-				var boxWidth = getBoxWidth(labelOpts, fontSize);
+				var boxWidth = gGHSoxWidth(labelOpts, fontSize);
 				var width = boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
 
 				if (i === 0 || lineWidths[lineWidths.length - 1] + width + 2 * labelOpts.padding > minSize.width) {
@@ -15434,7 +15434,7 @@ var Legend = core_element.extend({
 			var currentColHeight = 0;
 
 			helpers$1.each(me.legendItems, function(legendItem, i) {
-				var boxWidth = getBoxWidth(labelOpts, fontSize);
+				var boxWidth = gGHSoxWidth(labelOpts, fontSize);
 				var itemWidth = boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
 
 				// If too tall, go to new column
@@ -15507,7 +15507,7 @@ var Legend = core_element.extend({
 		ctx.fillStyle = fontColor; // render in correct colour
 		ctx.font = labelFont.string;
 
-		var boxWidth = getBoxWidth(labelOpts, fontSize);
+		var boxWidth = gGHSoxWidth(labelOpts, fontSize);
 		var hitboxes = me.legendHitBoxes;
 
 		// current position

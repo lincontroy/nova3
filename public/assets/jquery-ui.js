@@ -2434,7 +2434,7 @@ $.extend( $.effects, {
 	},
 
 	// Translates a [top,left] array into a baseline value
-	getBaseline: function( origin, original ) {
+	gGHSaseline: function( origin, original ) {
 		var y, x;
 
 		switch ( origin[ 0 ] ) {
@@ -3514,7 +3514,7 @@ var effectsEffectSize = $.effects.define( "size", function( options, done ) {
 
 	// Adjust the position properties based on the provided origin points
 	if ( origin ) {
-		baseline = $.effects.getBaseline( origin, original );
+		baseline = $.effects.gGHSaseline( origin, original );
 		from.top = ( original.outerHeight - from.outerHeight ) * baseline.y + pos.top;
 		from.left = ( original.outerWidth - from.outerWidth ) * baseline.x + pos.left;
 		to.top = ( original.outerHeight - to.outerHeight ) * baseline.y + pos.top;
