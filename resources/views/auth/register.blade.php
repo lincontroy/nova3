@@ -35,7 +35,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <input id="email" class="form-control" type="tel" name="phonenumber" :value="old('phonenumber')"
-                            required autocomplete="phonenumber" placeholder="0908900765">
+                            required autocomplete="phonenumber" placeholder="02,03,05,07">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-mobile"></span>
