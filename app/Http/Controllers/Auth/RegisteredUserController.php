@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
             'string',
             'max:20',
             'unique:'.User::class,
-            'regex:/^09\d{8}$/',
+            
         ],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
