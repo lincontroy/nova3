@@ -32,7 +32,10 @@
             'product_value' => 240000,
             'description' => 'Reach the top with GH¢ 240,000 and cash in GH¢ 24,000!',
         ],
-    ]);
+    ])->map(function ($pkg) {
+        $pkg['commission'] = number_format($pkg['product_value'] * 0.10); // 10% commission
+        return $pkg;
+    });
 @endphp
 
 <x-admin>
@@ -40,7 +43,7 @@
     <div class="col-md-12 col-12">
         <div class="small-box bg-success" style="min-height: 200px; padding: 2rem;">
             <div class="inner">
-                <h3>GHS {{ Auth::user()->total_commissions }}</h3>
+                <h3>GH¢ {{ number_format(Auth::user()->total_commissions) }}</h3>
                 <p>My Total Commissions</p>
             </div>
             <div class="icon">
@@ -50,7 +53,7 @@
                 View <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
-    </div>    
+    </div>
 
     <h2 class="text-center mb-5">Get Started</h2>
     <div class="row g-4">
@@ -60,7 +63,7 @@
                 $isAvailable = false;
                 $isUnlocked = false;
                 $isLocked = false;
-                
+
                 if ($userLevel == 0) {
                     $isAvailable = ($packageLevel == 1);
                     $isLocked = ($packageLevel > 1);
@@ -82,8 +85,15 @@
                         <h5 class="mb-0">{{ $package['name'] }}</h5>
                     </div>
                     <div class="card-body text-center">
-                        <p class="mb-3">{{ $package['description'] }}</p>
-                        <p class="fw-bold text-primary">- GH¢{{ number_format($package['price']) }}</p>
+                        <p class="mb-3 text-muted">
+                            {{ $package['description'] }}
+                        </p>
+                        <p class="text-muted mb-2">
+                            Product Value: <strong>GH¢{{ number_format($package['product_value']) }}</strong>
+                        </p>
+                        <p>
+                            Commission: <strong>GH¢{{ $package['commission'] }} (10%)</strong>
+                        </p>
 
                         @if($isUnlocked)
                             <span class="badge bg-success">Unlocked</span>
