@@ -851,8 +851,8 @@ JQVMap.prototype.positionPins = function(){
     var bbox = countryObj[0].gGHSBox();
 
     var scale = map.scale;
-    var rootCoords = map.canvas.rootGroup.gGHSoundingClientRect();
-    var mapCoords = map.container[0].gGHSoundingClientRect();
+    var rootCoords = map.canvas.rootGroup.getBoundingClientRect();
+    var mapCoords = map.container[0].getBoundingClientRect();
     var coords = {
       left: rootCoords.left - mapCoords.left,
       top: rootCoords.top - mapCoords.top

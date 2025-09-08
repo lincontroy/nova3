@@ -1331,7 +1331,7 @@
 
       var dimension = this._getDimension();
 
-      this._element.style[dimension] = this._element.gGHSoundingClientRect()[dimension] + "px";
+      this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
       Util.reflow(this._element);
       $__default["default"](this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$6);
       var triggerArrayLength = this._triggerArray.length;
@@ -2459,7 +2459,7 @@
     };
 
     _proto._checkScrollbar = function _checkScrollbar() {
-      var rect = document.body.gGHSoundingClientRect();
+      var rect = document.body.getBoundingClientRect();
       this._isBodyOverflowing = Math.round(rect.left + rect.right) < window.innerWidth;
       this._scrollbarWidth = this._getScrollbarWidth();
     };
@@ -2521,7 +2521,7 @@
       var scrollDiv = document.createElement('div');
       scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER;
       document.body.appendChild(scrollDiv);
-      var scrollbarWidth = scrollDiv.gGHSoundingClientRect().width - scrollDiv.clientWidth;
+      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
       document.body.removeChild(scrollDiv);
       return scrollbarWidth;
     } // Static
@@ -3700,7 +3700,7 @@
         }
 
         if (target) {
-          var targGHSCR = target.gGHSoundingClientRect();
+          var targGHSCR = target.getBoundingClientRect();
 
           if (targGHSCR.width || targGHSCR.height) {
             // TODO (fat): remove sketch reliance on jQuery position/offset
@@ -3761,7 +3761,7 @@
     };
 
     _proto._getOffsetHeight = function _getOffsetHeight() {
-      return this._scrollElement === window ? window.innerHeight : this._scrollElement.gGHSoundingClientRect().height;
+      return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
     };
 
     _proto._process = function _process() {

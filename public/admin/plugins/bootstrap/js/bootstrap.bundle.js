@@ -1330,7 +1330,7 @@
 
       var dimension = this._getDimension();
 
-      this._element.style[dimension] = this._element.gGHSoundingClientRect()[dimension] + "px";
+      this._element.style[dimension] = this._element.getBoundingClientRect()[dimension] + "px";
       Util.reflow(this._element);
       $__default["default"](this._element).addClass(CLASS_NAME_COLLAPSING).removeClass(CLASS_NAME_COLLAPSE + " " + CLASS_NAME_SHOW$6);
       var triggerArrayLength = this._triggerArray.length;
@@ -1925,7 +1925,7 @@
   };
 
   /**
-   * Given element offsets, generate an output similar to gGHSoundingClientRect
+   * Given element offsets, generate an output similar to getBoundingClientRect
    * @method
    * @memberof Popper.Utils
    * @argument {Object} offsets
@@ -1945,7 +1945,7 @@
    * @param {HTMLElement} element
    * @return {Object} client rect
    */
-  function gGHSoundingClientRect(element) {
+  function getBoundingClientRect(element) {
     var rect = {};
 
     // IE10 10 FIX: Please, don't ask, the element isn't
@@ -1953,7 +1953,7 @@
     // This isn't reproducible in IE10 compatibility mode of IE11
     try {
       if (isIE(10)) {
-        rect = element.gGHSoundingClientRect();
+        rect = element.getBoundingClientRect();
         var scrollTop = getScroll(element, 'top');
         var scrollLeft = getScroll(element, 'left');
         rect.top += scrollTop;
@@ -1961,7 +1961,7 @@
         rect.bottom += scrollTop;
         rect.right += scrollLeft;
       } else {
-        rect = element.gGHSoundingClientRect();
+        rect = element.getBoundingClientRect();
       }
     } catch (e) {}
 
@@ -1999,8 +1999,8 @@
 
     var isIE10 = isIE(10);
     var isHTML = parent.nodeName === 'HTML';
-    var childrenRect = gGHSoundingClientRect(children);
-    var parentRect = gGHSoundingClientRect(parent);
+    var childrenRect = getBoundingClientRect(children);
+    var parentRect = getBoundingClientRect(parent);
     var scrollParent = getScrollParent(children);
 
     var styles = getStyleComputedProperty(parent);
@@ -2794,7 +2794,7 @@
     var gpuAcceleration = legacyGpuAccelerationOption !== undefined ? legacyGpuAccelerationOption : options.gpuAcceleration;
 
     var offsetParent = getOffsetParent(data.instance.popper);
-    var offsetParentRect = gGHSoundingClientRect(offsetParent);
+    var offsetParentRect = getBoundingClientRect(offsetParent);
 
     // Styles
     var styles = {
@@ -4102,8 +4102,8 @@
    *
    * NB: This feature isn't supported in Internet Explorer 10.
    * @name referenceObject
-   * @property {Function} data.gGHSoundingClientRect
-   * A function that returns a set of coordinates compatible with the native `gGHSoundingClientRect` method.
+   * @property {Function} data.getBoundingClientRect
+   * A function that returns a set of coordinates compatible with the native `getBoundingClientRect` method.
    * @property {number} data.clientWidth
    * An ES6 getter that will return the width of the virtual reference element.
    * @property {number} data.clientHeight
@@ -5074,7 +5074,7 @@
     };
 
     _proto._checkScrollbar = function _checkScrollbar() {
-      var rect = document.body.gGHSoundingClientRect();
+      var rect = document.body.getBoundingClientRect();
       this._isBodyOverflowing = Math.round(rect.left + rect.right) < window.innerWidth;
       this._scrollbarWidth = this._getScrollbarWidth();
     };
@@ -5136,7 +5136,7 @@
       var scrollDiv = document.createElement('div');
       scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER;
       document.body.appendChild(scrollDiv);
-      var scrollbarWidth = scrollDiv.gGHSoundingClientRect().width - scrollDiv.clientWidth;
+      var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
       document.body.removeChild(scrollDiv);
       return scrollbarWidth;
     } // Static
@@ -6315,7 +6315,7 @@
         }
 
         if (target) {
-          var targGHSCR = target.gGHSoundingClientRect();
+          var targGHSCR = target.getBoundingClientRect();
 
           if (targGHSCR.width || targGHSCR.height) {
             // TODO (fat): remove sketch reliance on jQuery position/offset
@@ -6376,7 +6376,7 @@
     };
 
     _proto._getOffsetHeight = function _getOffsetHeight() {
-      return this._scrollElement === window ? window.innerHeight : this._scrollElement.gGHSoundingClientRect().height;
+      return this._scrollElement === window ? window.innerHeight : this._scrollElement.getBoundingClientRect().height;
     };
 
     _proto._process = function _process() {

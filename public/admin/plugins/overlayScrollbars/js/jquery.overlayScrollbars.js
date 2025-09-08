@@ -50,7 +50,7 @@
             cW: 'clientWidth',
             sW: 'scrollWidth',
             hOP: 'hasOwnProperty',
-            bCR: 'gGHSoundingClientRect'
+            bCR: 'getBoundingClientRect'
         };
         var VENDORS = (function () {
             //https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix

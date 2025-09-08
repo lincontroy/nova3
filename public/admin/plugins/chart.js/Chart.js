@@ -10650,7 +10650,7 @@ var core_helpers = function() {
 		var mouseX, mouseY;
 		var e = evt.originalEvent || evt;
 		var canvas = evt.target || evt.srcElement;
-		var boundingRect = canvas.gGHSoundingClientRect();
+		var boundingRect = canvas.getBoundingClientRect();
 
 		var touches = e.touches;
 		if (touches && touches.length > 0) {

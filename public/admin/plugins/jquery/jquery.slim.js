@@ -7022,11 +7022,11 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 
 					// Support: Safari 8+
 					// Table columns in Safari have non-zero offsetWidth & zero
-					// gGHSoundingClientRect().width unless display is changed.
+					// getBoundingClientRect().width unless display is changed.
 					// Support: IE <=11 only
-					// Running gGHSoundingClientRect on a disconnected node
+					// Running getBoundingClientRect on a disconnected node
 					// in IE throws an error.
-					( !elem.getClientRects().length || !elem.gGHSoundingClientRect().width ) ?
+					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
 					swap( elem, cssShow, function() {
 						return getWidthOrHeight( elem, dimension, extra );
 					} ) :
@@ -7085,9 +7085,9 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 	function( elem, computed ) {
 		if ( computed ) {
 			return ( parseFloat( curCSS( elem, "marginLeft" ) ) ||
-				elem.gGHSoundingClientRect().left -
+				elem.getBoundingClientRect().left -
 					swap( elem, { marginLeft: 0 }, function() {
-						return elem.gGHSoundingClientRect().left;
+						return elem.getBoundingClientRect().left;
 					} )
 			) + "px";
 		}
@@ -8421,14 +8421,14 @@ jQuery.fn.extend( {
 
 		// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
 		// Support: IE <=11 only
-		// Running gGHSoundingClientRect on a
+		// Running getBoundingClientRect on a
 		// disconnected node in IE throws an error
 		if ( !elem.getClientRects().length ) {
 			return { top: 0, left: 0 };
 		}
 
 		// Get document-relative position by adding viewport scroll to viewport-relative gBCR
-		rect = elem.gGHSoundingClientRect();
+		rect = elem.getBoundingClientRect();
 		win = elem.ownerDocument.defaultView;
 		return {
 			top: rect.top + win.pageYOffset,
@@ -8450,8 +8450,8 @@ jQuery.fn.extend( {
 		// position:fixed elements are offset from the viewport, which itself always has zero offset
 		if ( jQuery.css( elem, "position" ) === "fixed" ) {
 
-			// Assume position:fixed implies availability of gGHSoundingClientRect
-			offset = elem.gGHSoundingClientRect();
+			// Assume position:fixed implies availability of getBoundingClientRect
+			offset = elem.getBoundingClientRect();
 
 		} else {
 			offset = this.offset();
